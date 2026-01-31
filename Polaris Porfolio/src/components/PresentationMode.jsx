@@ -107,7 +107,7 @@ const slides = [
         { label: 'Stability', value: 89 },
       ],
     },
-    image: '/team/IMG_4599.jpeg',
+    image: '/team/DSC_1126.JPG',
     imageAlt: 'Team members driving and spotting the robot',
   },
   {

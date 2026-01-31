@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, X, Star, Zap } from 'lucide-react';
+import { Menu, X, Zap } from 'lucide-react';
 
 const Header = ({ judgeMode, setJudgeMode }) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -18,8 +18,12 @@ const Header = ({ judgeMode, setJudgeMode }) => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-sky-500 to-cyan-400 rounded-lg flex items-center justify-center">
-              <Star className="w-6 h-6 text-white" fill="white" />
+            <div className="w-10 h-10 rounded-lg overflow-hidden border border-white/40 bg-white/80">
+              <img
+                src="/team/DSC_1080.JPG"
+                alt="Polaris robot"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div>
               <h1 className="text-xl font-bold text-gradient">Polaris 23682</h1>
