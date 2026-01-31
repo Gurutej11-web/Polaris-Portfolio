@@ -51,6 +51,27 @@ const TeamGallery = () => {
     },
   ];
 
+  const teamPhotos = [
+    '/team/DSC_0983.JPG',
+    '/team/DSC_0989.JPG',
+    '/team/DSC_1066.JPG',
+    '/team/DSC_1067.JPG',
+    '/team/DSC_1080.JPG',
+    '/team/DSC_1094.JPG',
+    '/team/DSC_1095.JPG',
+    '/team/DSC_1096.JPG',
+    '/team/DSC_1126.JPG',
+    '/team/DSC_1129.JPG',
+    '/team/DSC_1150.JPG',
+    '/team/FC74BD7E-ADA0-4F2E-80FC-D6A7BD848C0C.png',
+    '/team/IMG_2935.jpeg',
+    '/team/IMG_2965.jpg',
+    '/team/IMG_3072.jpeg',
+    '/team/unnamed-1.png',
+    '/team/unnamed.jpg',
+    '/team/unnamed.png',
+  ];
+
   return (
     <section id="team" className="py-20 px-6">
       <div className="container mx-auto">
@@ -146,6 +167,23 @@ const TeamGallery = () => {
           <div className="glass-card p-6 text-center">
             <p className="text-3xl font-bold text-cyan-500">12K+</p>
             <p className="text-sm text-slate-600 mt-1">Lines of Code</p>
+          </div>
+        </div>
+
+        {/* Team Photo Gallery */}
+        <div className="glass-card p-8 mt-10">
+          <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">Team in Action</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {teamPhotos.map((src, index) => (
+              <div key={index} className="overflow-hidden rounded-xl border border-white/60 bg-white/40">
+                <img
+                  src={src}
+                  alt="Team moment"
+                  loading="lazy"
+                  className="h-40 w-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+            ))}
           </div>
         </div>
 
