@@ -7,6 +7,7 @@ const slides = [
     subtitle: '2025–2026 Engineering Portfolio',
     kicker: 'Season Snapshot',
     detail: 'A fast-paced season focused on reliable scoring, rapid iteration, and clear documentation for judges and partners.',
+    detail2: 'We emphasize measurable performance gains, rapid feedback loops, and a presentation-friendly data trail for every major design choice.',
     callout: 'Key takeaway: We engineered a consistent scoring robot backed by clear evidence and iteration data.',
     tags: ['Reliability', 'Iteration', 'Documentation'],
     stats: [
@@ -28,9 +29,10 @@ const slides = [
   },
   {
     title: 'Our Mission',
-    bullets: ['Build smart, reliable robots', 'Share STEM with our community', 'Iterate fast, learn faster'],
+    bullets: ['Build smart, reliable robots', 'Share STEM with our community', 'Iterate fast, learn faster', 'Document decisions for repeatability'],
     kicker: 'Why We Compete',
     detail: 'We prioritize dependable performance, inclusive learning, and transparent engineering decisions that scale across seasons.',
+    detail2: 'Our mission connects competition results with mentorship outcomes, ensuring technical growth and community impact move together.',
     callout: 'Key takeaway: Our decisions balance competitive performance with community impact and student growth.',
     tags: ['Reliability', 'Community', 'Learning'],
     stats: [
@@ -52,9 +54,10 @@ const slides = [
   },
   {
     title: 'Robot Overview',
-    bullets: ['Mecanum drive base', 'Belt-chain launcher', 'Variable geometry intake'],
+    bullets: ['Mecanum drive base', 'Belt-chain launcher', 'Variable geometry intake', 'Quick-swap maintenance zones'],
     kicker: 'System Architecture',
     detail: 'A compact, modular frame with fast swap assemblies for drive, intake, and launcher tuning between matches.',
+    detail2: 'Subsystem access panels and standardized mounts reduce pit turnaround and simplify inspection readiness.',
     callout: 'Key takeaway: Modular assemblies reduce pit time and keep performance consistent across matches.',
     tags: ['Modular design', 'Serviceability', 'Consistency'],
     stats: [
@@ -76,9 +79,10 @@ const slides = [
   },
   {
     title: 'Drive System',
-    bullets: ['Holonomic control', 'Fast alignment', 'Stable under load'],
+    bullets: ['Holonomic control', 'Fast alignment', 'Stable under load', 'Smooth driver handoff'],
     kicker: 'Mobility Advantage',
     detail: 'Mecanum kinematics allow precision strafing, reducing cycle time and simplifying alignment on the hub.',
+    detail2: 'Driver practice plus tuned motion profiles keep control predictable under defense and tight field conditions.',
     callout: 'Key takeaway: Precise lateral control cuts alignment time and boosts scoring cycles.',
     tags: ['Agility', 'Control', 'Stability'],
     stats: [
@@ -100,9 +104,10 @@ const slides = [
   },
   {
     title: 'Intake Advantage',
-    bullets: ['Angular motion for alignment', 'Fast sample acquisition', 'Repeatable feed angle'],
+    bullets: ['Angular motion for alignment', 'Fast sample acquisition', 'Repeatable feed angle', 'Low jam rate'],
     kicker: 'Acquisition Speed',
     detail: 'The intake geometry captures off-axis pieces and funnels them into a consistent launch alignment.',
+    detail2: 'Compliance points reduce bounce-outs while guiding samples into a fixed handoff location.',
     callout: 'Key takeaway: Off-angle capture keeps cycles fast even under defense.',
     tags: ['Capture rate', 'Alignment', 'Consistency'],
     stats: [
@@ -124,9 +129,10 @@ const slides = [
   },
   {
     title: 'Launcher Tracking',
-    bullets: ['Belt-chain trajectory control', 'Consistent release points', 'Lower driver correction'],
+    bullets: ['Belt-chain trajectory control', 'Consistent release points', 'Lower driver correction', 'Fast recovery between shots'],
     kicker: 'Scoring Precision',
     detail: 'A tunable chain-belt path stabilizes release while software compensation fine-tunes angle and speed.',
+    detail2: 'Repeatable release geometry lets drivers focus on positioning while software trims the final aim.',
     callout: 'Key takeaway: Stable release points reduce driver correction and improve accuracy.',
     tags: ['Accuracy', 'Stability', 'Tunable'],
     stats: [
@@ -148,9 +154,10 @@ const slides = [
   },
   {
     title: 'Autonomous Paths',
-    bullets: ['Reliable start-to-score routes', 'Smooth field traversal', 'Optimized scoring windows'],
+    bullets: ['Reliable start-to-score routes', 'Smooth field traversal', 'Optimized scoring windows', 'Fallback routes for defense'],
     kicker: 'Auto Consistency',
     detail: 'Auto routines prioritize predictable early scoring with fallback routes for defensive disruption.',
+    detail2: 'Path options are chosen by starting position, minimizing collisions and maximizing early points.',
     callout: 'Key takeaway: Multiple autos give us flexible scoring options per match strategy.',
     tags: ['Consistency', 'Resilience', 'Scoring'],
     stats: [
@@ -172,9 +179,10 @@ const slides = [
   },
   {
     title: 'Robot Capability',
-    bullets: ['Speed, accuracy, reliability', 'Intake efficiency focus', 'Auto consistency on current build'],
+    bullets: ['Speed, accuracy, reliability', 'Intake efficiency focus', 'Auto consistency on current build', 'Stable endgame performance'],
     kicker: 'Match Readiness',
     detail: 'Our full-system tuning balances cycle speed with repeatable accuracy during extended match play.',
+    detail2: 'Stress tests across multiple matches validate durability and prevent performance drop-off late in events.',
     callout: 'Key takeaway: Balanced performance keeps cycle times low without sacrificing accuracy.',
     tags: ['Speed', 'Accuracy', 'Reliability'],
     stats: [
@@ -196,9 +204,10 @@ const slides = [
   },
   {
     title: 'Iteration Progress',
-    bullets: ['Iter 1: low scores', 'Iter 2: medium scores', 'Iter 3: near current', 'Iter 4: current performance'],
+    bullets: ['Iter 1: low scores', 'Iter 2: medium scores', 'Iter 3: near current', 'Iter 4: current performance', 'Post-iter: polish + reliability'],
     kicker: 'Design Evolution',
     detail: 'Each iteration delivered measurable score gains through targeted changes to intake alignment and launch tuning.',
+    detail2: 'We track changes by subsystem, then validate with scrimmage data before moving to the next iteration.',
     callout: 'Key takeaway: Fast feedback loops drove a +38% scoring improvement.',
     tags: ['Iteration', 'Testing', 'Results'],
     stats: [
@@ -221,9 +230,10 @@ const slides = [
   },
   {
     title: 'Control Software',
-    bullets: ['Custom PID for angle control', 'Cleaner tuning curves', 'Stable tracking'],
+    bullets: ['Custom PID for angle control', 'Cleaner tuning curves', 'Stable tracking', 'Driver-assist automation'],
     kicker: 'Software Reliability',
     detail: 'A structured tuning process includes step-response tests and in-match validation on field.',
+    detail2: 'Telemetry overlays and logs help us identify drift, latency, and response delays quickly.',
     callout: 'Key takeaway: Consistent control loops reduce overshoot and stabilize shots.',
     tags: ['PID tuning', 'Stability', 'Telemetry'],
     stats: [
@@ -245,9 +255,10 @@ const slides = [
   },
   {
     title: 'Sensor Fusion',
-    bullets: ['Robust state estimation', 'Accurate motion control', 'Consistent scoring cadence'],
+    bullets: ['Robust state estimation', 'Accurate motion control', 'Consistent scoring cadence', 'Reduced drift over time'],
     kicker: 'Navigation Accuracy',
     detail: 'IMU + encoder fusion provides smooth pose updates and reduces drift during fast maneuvers.',
+    detail2: 'We calibrate sensors pre-match to improve repeatability and reduce the need for manual correction.',
     callout: 'Key takeaway: Reliable pose estimates keep autos repeatable and predictable.',
     tags: ['Pose tracking', 'IMU', 'Encoders'],
     stats: [
@@ -269,9 +280,10 @@ const slides = [
   },
   {
     title: 'CAD + Design Dumps',
-    bullets: ['Rapid iteration notes', 'Trade studies', 'Final assembly decisions'],
+    bullets: ['Rapid iteration notes', 'Trade studies', 'Final assembly decisions', 'Inspection-ready drawings'],
     kicker: 'Documentation System',
     detail: 'All major choices are documented with lightweight trade studies to support fast, repeatable decisions.',
+    detail2: 'Design dumps include tests, failure notes, and decisions so future teams can pick up quickly.',
     callout: 'Key takeaway: Clear documentation speeds onboarding and future season improvements.',
     tags: ['CAD', 'Trade studies', 'Build notes'],
     stats: [
@@ -293,9 +305,10 @@ const slides = [
   },
   {
     title: 'Community Impact',
-    bullets: ['130+ students impacted', '430+ outreach hours', '2 community events'],
+    bullets: ['130+ students impacted', '430+ outreach hours', '2 community events', 'Mentor-led workshops'],
     kicker: 'STEM Outreach',
     detail: 'We lead demos, workshops, and mentorship sessions to grow interest in robotics and STEM.',
+    detail2: 'Hands-on demos help younger students connect engineering concepts to real robots and teamwork.',
     callout: 'Key takeaway: Outreach strengthens our community partnerships and inspires future teams.',
     tags: ['Workshops', 'Mentorship', 'Community'],
     stats: [
@@ -317,9 +330,10 @@ const slides = [
   },
   {
     title: 'Sustainability',
-    bullets: ['43% parts reclaimed', 'Reuse-first workflow', 'Efficient design revisions'],
+    bullets: ['43% parts reclaimed', 'Reuse-first workflow', 'Efficient design revisions', 'Inventory tracking'],
     kicker: 'Responsible Engineering',
     detail: 'We prioritize part reuse and modular repairs to extend component life and reduce waste.',
+    detail2: 'Reclaimed parts are tagged and tested, keeping costs low without sacrificing performance.',
     callout: 'Key takeaway: Reuse-first design saves budget while reducing environmental impact.',
     tags: ['Reuse', 'Repair', 'Efficiency'],
     stats: [
@@ -341,9 +355,10 @@ const slides = [
   },
   {
     title: 'Team Structure',
-    bullets: ['Software, Design, Construction, Management', '10 total members'],
+    bullets: ['Software, Design, Construction, Management', '10 total members', 'Weekly syncs and handoffs'],
     kicker: 'Team Operations',
     detail: 'Leads coordinate across pods with weekly syncs and shared sprint goals.',
+    detail2: 'We use shared checklists and review gates to keep each subteam aligned and accountable.',
     callout: 'Key takeaway: Clear roles and cadence keep build, code, and ops aligned.',
     tags: ['Leadership', 'Cadence', 'Cross-team'],
     stats: [
@@ -365,9 +380,10 @@ const slides = [
   },
   {
     title: 'Team Highlights',
-    bullets: ['300+ build hours', '6K+ lines of code', 'Focused, fast iteration'],
+    bullets: ['300+ build hours', '6K+ lines of code', 'Focused, fast iteration', 'Scrimmage-tested updates'],
     kicker: 'Season Output',
     detail: 'Rapid prototyping and disciplined reviews helped us deliver a stable, repeatable robot.',
+    detail2: 'Our review cadence keeps improvements measurable and reduces last-minute surprises at events.',
     callout: 'Key takeaway: Strong output across build, code, and testing drove performance gains.',
     tags: ['Build hours', 'Codebase', 'Testing'],
     stats: [
@@ -392,6 +408,7 @@ const slides = [
     subtitle: 'Thank you for reviewing our portfolio',
     kicker: 'Ready for Questions',
     detail: 'We welcome questions and feedback on our engineering choices, documentation, and outreach work.',
+    detail2: 'We can walk through decision trade-offs, test data, and reliability results on request.',
     callout: 'Key takeaway: We are prepared to discuss decisions, data, and results in detail.',
     tags: ['Questions', 'Feedback', 'Follow-up'],
     stats: [
@@ -476,6 +493,9 @@ const PresentationMode = ({ onClose }) => {
             )}
             {slide.detail && (
               <p className="text-base md:text-lg text-slate-200 leading-relaxed">{slide.detail}</p>
+            )}
+            {slide.detail2 && (
+              <p className="text-sm md:text-base text-slate-300 leading-relaxed">{slide.detail2}</p>
             )}
             {slide.tags && (
               <div className="flex flex-wrap gap-2">
