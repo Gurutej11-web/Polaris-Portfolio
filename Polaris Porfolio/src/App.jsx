@@ -7,6 +7,7 @@ import MechanicalSystems from './components/MechanicalSystems';
 import CodeVault from './components/CodeVault';
 import ImpactSustainability from './components/ImpactSustainability';
 import TeamGallery from './components/TeamGallery';
+import PresentationControls from './components/PresentationControls';
 import Footer from './components/Footer';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <CodeVault judgeMode={judgeMode} />
       <ImpactSustainability />
       <TeamGallery />
+      <PresentationControls />
       <Footer />
     </div>
   );
