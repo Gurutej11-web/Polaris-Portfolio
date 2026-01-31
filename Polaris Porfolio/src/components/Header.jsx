@@ -58,7 +58,7 @@ const Header = ({ judgeMode, setJudgeMode }) => {
               }`}
             >
               <Zap className="w-4 h-4" />
-              <span>Judge Mode</span>
+              <span>Judge Presentation</span>
             </button>
           </div>
 
@@ -101,7 +101,7 @@ const Header = ({ judgeMode, setJudgeMode }) => {
               }`}
             >
               <Zap className="w-4 h-4" />
-              <span>Judge Mode</span>
+              <span>Judge Presentation</span>
             </button>
           </div>
         )}

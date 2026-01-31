@@ -8,23 +8,33 @@ import CodeVault from './components/CodeVault';
 import ImpactSustainability from './components/ImpactSustainability';
 import TeamGallery from './components/TeamGallery';
 import PresentationControls from './components/PresentationControls';
+import PresentationMode from './components/PresentationMode';
 import Footer from './components/Footer';
 
 function App() {
   const [judgeMode, setJudgeMode] = useState(false);
+  const [showPresentation, setShowPresentation] = useState(false);
+
+  const handleJudgeToggle = () => {
+    setJudgeMode((prev) => !prev);
+    setShowPresentation(true);
+  };
 
   return (
     <div className="min-h-screen arctic-gradient">
-      <Header judgeMode={judgeMode} setJudgeMode={setJudgeMode} />
+      <Header judgeMode={judgeMode} setJudgeMode={handleJudgeToggle} />
       <LiveStats />
       <Hero />
-      <StrategicAnalysis judgeMode={judgeMode} />
-      <MechanicalSystems judgeMode={judgeMode} />
-      <CodeVault judgeMode={judgeMode} />
+      <StrategicAnalysis />
+      <MechanicalSystems />
+      <CodeVault />
       <ImpactSustainability />
       <TeamGallery />
       <PresentationControls />
       <Footer />
+      {showPresentation && (
+        <PresentationMode onClose={() => setShowPresentation(false)} />
+      )}
     </div>
   );
 }
