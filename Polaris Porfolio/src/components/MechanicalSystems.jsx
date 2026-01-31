@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cog, Layers, Zap, Move, ArrowUpCircle, Gauge } from 'lucide-react';
+import { Cog, Layers, Zap, Move, Gauge } from 'lucide-react';
 
 const MechanicalSystems = ({ judgeMode }) => {
   return (
@@ -94,17 +94,18 @@ const MechanicalSystems = ({ judgeMode }) => {
         </div>
 
         {/* Active Intake */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-8">
-          <div className="glass-card p-8">
+        <div className="glass-card p-8 mb-8">
             <div className="flex items-center space-x-3 mb-6">
               <Layers className="w-6 h-6 text-sky-500" />
-              <h3 className="text-2xl font-bold text-slate-900">Variable Geometry Intake</h3>
+              <h3 className="text-2xl font-bold text-slate-900">Variable Geometry Intake & Launcher Tracking</h3>
             </div>
 
+          <div className="grid lg:grid-cols-2 gap-8">
             <div className="space-y-6">
               <p className="text-slate-700 leading-relaxed">
                 Active intake system featuring <strong className="text-cyan-400">35A compliant wheels</strong> on 
-                a servo-actuated pivot mechanism, allowing dynamic adjustment for samples and specimens.
+                a servo-actuated pivot mechanism. The angular motion lets us align samples faster and stabilize the 
+                belt-chain launcher angle for consistent scoring.
               </p>
 
               <div className="space-y-3">
@@ -118,11 +119,23 @@ const MechanicalSystems = ({ judgeMode }) => {
               </div>
 
               <div className="bg-slate-900 text-cyan-400 p-5 rounded-xl font-mono text-sm">
-                <p className="text-white mb-2 font-sans">Linear Velocity:</p>
-                <p>v = ω × r</p>
+                <p className="text-white mb-2 font-sans">Angular Tracking:</p>
+                <p>θ(t) = θ₀ + ωt</p>
                 <p className="text-xs text-slate-400 mt-2 font-sans">
-                  v = (450 RPM × 2π/60) × 0.025m = <strong className="text-cyan-400">1.18 m/s</strong>
+                  Controlled pivot motion aligns the launcher angle before release.
                 </p>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="glass-card p-5">
+                <h4 className="font-bold text-slate-900 mb-3">Why It Scores Better</h4>
+                <ul className="space-y-2 text-sm text-slate-700">
+                  <li>• Angular intake motion stabilizes sample alignment</li>
+                  <li>• Belt-chain launcher tracks trajectories for repeatable arcs</li>
+                  <li>• Faster target lock reduces driver corrections</li>
+                  <li>• Consistent release points improve accuracy</li>
+                </ul>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
@@ -134,69 +147,6 @@ const MechanicalSystems = ({ judgeMode }) => {
                   <p className="text-2xl font-bold text-cyan-400">0.8s</p>
                   <p className="text-xs text-slate-600">Intake Time</p>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Linear Lift */}
-          <div className={`glass-card p-8 ${judgeMode ? 'judge-highlight' : ''}`}>
-            <div className="flex items-center space-x-3 mb-6">
-              <ArrowUpCircle className="w-6 h-6 text-sky-500" />
-              <h3 className="text-2xl font-bold text-slate-900">3-Stage Linear Lift</h3>
-              {judgeMode && (
-                <span className="px-3 py-1 bg-cyan-400 text-slate-900 text-xs font-bold rounded-full">
-                  MAGNETIC LIMIT
-                </span>
-              )}
-            </div>
-
-            <div className="space-y-6">
-              <p className="text-slate-700 leading-relaxed">
-                Continuous rigging system with <strong className="text-cyan-400">magnetic limit switches</strong> for 
-                sub-millimeter precision. Dual-motor configuration ensures balanced load distribution.
-              </p>
-
-              <div className="space-y-4">
-                <div className="glass-card p-4">
-                  <h4 className="font-bold text-slate-900 mb-2 text-sm">Specifications</h4>
-                  <div className="grid grid-cols-2 gap-2 text-xs text-slate-700">
-                    <div>Max Extension: 42"</div>
-                    <div>Load Capacity: 8 lbs</div>
-                    <div>Speed: 18 in/s</div>
-                    <div>Precision: ±0.5mm</div>
-                  </div>
-                </div>
-
-                <div className="glass-card p-4">
-                  <h4 className="font-bold text-slate-900 mb-2 text-sm">Preset Positions</h4>
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-xs">
-                      <span className="text-slate-700">Low Basket</span>
-                      <span className="font-mono text-sky-500">8.5"</span>
-                    </div>
-                    <div className="flex justify-between text-xs">
-                      <span className="text-slate-700">High Basket</span>
-                      <span className="font-mono text-cyan-400">24.0"</span>
-                    </div>
-                    <div className="flex justify-between text-xs">
-                      <span className="text-slate-700">High Chamber</span>
-                      <span className="font-mono text-blue-500">36.5"</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-cyan-400/20 border border-cyan-400/40 rounded-lg p-4">
-                <p className="text-xs text-slate-700">
-                  <strong>Key Feature:</strong> Magnetic limit switches provide non-contact position sensing, 
-                  eliminating mechanical wear and ensuring 10,000+ cycle reliability.
-                </p>
-              </div>
-
-              <div className="text-center p-5 glass-card">
-                <Cog className="w-10 h-10 text-sky-500 mx-auto mb-2 animate-spin" style={{ animationDuration: '3s' }} />
-                <p className="text-3xl font-bold text-slate-900">2.1s</p>
-                <p className="text-sm text-slate-600">Full Extension Time</p>
               </div>
             </div>
           </div>
@@ -224,6 +174,35 @@ const MechanicalSystems = ({ judgeMode }) => {
           </div>
         </div>
 
+        {/* CAD & Design Dumps */}
+        <div className="glass-card p-8 mb-8">
+          <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">CAD Dump & Design Dump</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="glass-card p-6">
+              <h4 className="font-bold text-slate-900 mb-3">CAD Dump</h4>
+              <p className="text-sm text-slate-700">
+                Snapshots of in-progress assemblies, drivetrain layouts, and belt-chain launcher alignment checks.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-slate-700">
+                <li>• Intake geometry revisions</li>
+                <li>• Belt-chain path checks</li>
+                <li>• Frame reinforcement trials</li>
+              </ul>
+            </div>
+            <div className="glass-card p-6">
+              <h4 className="font-bold text-slate-900 mb-3">Design Dump</h4>
+              <p className="text-sm text-slate-700">
+                Rapid design notes, trade studies, and iteration logs that guided our final build.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-slate-700">
+                <li>• Intake angle trade-offs</li>
+                <li>• Launcher arc tuning notes</li>
+                <li>• Assembly time reductions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         {/* System Integration Summary */}
         <div className="glass-card p-8">
           <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">System Integration</h3>
@@ -244,10 +223,10 @@ const MechanicalSystems = ({ judgeMode }) => {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <ArrowUpCircle className="w-8 h-8 text-blue-500" />
+                <Zap className="w-8 h-8 text-blue-500" />
               </div>
-              <p className="font-bold text-slate-900">Lift</p>
-              <p className="text-sm text-slate-600">3-Stage Linear</p>
+              <p className="font-bold text-slate-900">Launcher</p>
+              <p className="text-sm text-slate-600">Belt-Chain Tracking</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-sky-600/20 rounded-full flex items-center justify-center mx-auto mb-3">

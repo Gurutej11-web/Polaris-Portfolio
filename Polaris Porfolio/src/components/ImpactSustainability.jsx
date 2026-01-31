@@ -4,11 +4,11 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 
 const ImpactSustainability = () => {
   const outreachData = [
-    { month: 'Sep', hours: 18, students: 65 },
-    { month: 'Oct', hours: 24, students: 95 },
-    { month: 'Nov', hours: 28, students: 110 },
-    { month: 'Dec', hours: 22, students: 85 },
-    { month: 'Jan', hours: 30, students: 95 },
+    { month: 'Sep', hours: 60, students: 30 },
+    { month: 'Oct', hours: 95, students: 40 },
+    { month: 'Nov', hours: 110, students: 25 },
+    { month: 'Dec', hours: 75, students: 15 },
+    { month: 'Jan', hours: 90, students: 20 },
   ];
 
   return (
@@ -33,22 +33,22 @@ const ImpactSustainability = () => {
         <div className="grid md:grid-cols-4 gap-6 mb-12">
           <div className="glass-card p-6 text-center hover:scale-105 transition-transform duration-300">
             <Users className="w-12 h-12 text-sky-500 mx-auto mb-3" />
-            <p className="text-4xl font-bold text-slate-900">450+</p>
+            <p className="text-4xl font-bold text-slate-900">130+</p>
             <p className="text-sm text-slate-600 mt-2">Students Impacted</p>
           </div>
           <div className="glass-card p-6 text-center hover:scale-105 transition-transform duration-300">
             <Heart className="w-12 h-12 text-pink-500 mx-auto mb-3" />
-            <p className="text-4xl font-bold text-slate-900">120+</p>
+            <p className="text-4xl font-bold text-slate-900">430+</p>
             <p className="text-sm text-slate-600 mt-2">Outreach Hours</p>
           </div>
           <div className="glass-card p-6 text-center hover:scale-105 transition-transform duration-300">
             <Sprout className="w-12 h-12 text-green-500 mx-auto mb-3" />
-            <p className="text-4xl font-bold text-slate-900">65%</p>
+            <p className="text-4xl font-bold text-slate-900">43%</p>
             <p className="text-sm text-slate-600 mt-2">Parts Reclaimed</p>
           </div>
           <div className="glass-card p-6 text-center hover:scale-105 transition-transform duration-300">
             <Award className="w-12 h-12 text-amber-500 mx-auto mb-3" />
-            <p className="text-4xl font-bold text-slate-900">8</p>
+            <p className="text-4xl font-bold text-slate-900">2</p>
             <p className="text-sm text-slate-600 mt-2">Community Events</p>
           </div>
         </div>
@@ -88,15 +88,15 @@ const ImpactSustainability = () => {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span className="text-sm text-slate-700">Total Hours</span>
-                    <span className="font-bold text-sky-500">122 hrs</span>
+                    <span className="font-bold text-sky-500">430 hrs</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm text-slate-700">Students Reached</span>
-                    <span className="font-bold text-cyan-400">450+</span>
+                    <span className="font-bold text-cyan-400">130+</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm text-slate-700">Avg per Event</span>
-                    <span className="font-bold text-blue-500">56 students</span>
+                    <span className="font-bold text-blue-500">65 students</span>
                   </div>
                 </div>
               </div>
@@ -125,12 +125,11 @@ const ImpactSustainability = () => {
                     <span className="text-xl">🏫</span>
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900">Elementary STEM Workshops</h4>
+                    <h4 className="font-bold text-slate-900">STEM Event: BigFuture Night</h4>
                     <p className="text-sm text-slate-600 mt-1">
-                      Hands-on robotics demos at 3 local elementary schools, introducing 200+ students to 
-                      basic programming and mechanical engineering concepts.
+                      Community STEM showcase featuring demos and hands-on robotics experiences for families.
                     </p>
-                    <p className="text-xs text-sky-500 font-semibold mt-2">Impact: 200+ students</p>
+                    <p className="text-xs text-sky-500 font-semibold mt-2">Impact: 130+ students</p>
                   </div>
                 </div>
               </div>
@@ -141,12 +140,11 @@ const ImpactSustainability = () => {
                     <span className="text-xl">👥</span>
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900">FLL Team Mentorship</h4>
+                    <h4 className="font-bold text-slate-900">Middle School STEM Showcases</h4>
                     <p className="text-sm text-slate-600 mt-1">
-                      Weekly mentoring sessions for 2 FIRST Lego League teams, teaching competition 
-                      strategy, core values, and project management skills.
+                      Live robot demonstrations and Q&A sessions tailored for middle school STEM classes.
                     </p>
-                    <p className="text-xs text-cyan-400 font-semibold mt-2">Impact: 24 students</p>
+                    <p className="text-xs text-cyan-400 font-semibold mt-2">Impact: 65 students</p>
                   </div>
                 </div>
               </div>
@@ -167,21 +165,6 @@ const ImpactSustainability = () => {
                 </div>
               </div>
 
-              <div className="glass-card p-5 hover:shadow-xl transition-shadow">
-                <div className="flex items-start space-x-3">
-                  <div className="w-10 h-10 bg-sky-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-xl">🏆</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900">Regional Scrimmage Hosting</h4>
-                    <p className="text-sm text-slate-600 mt-1">
-                      Organized and hosted practice tournament for 8 FTC teams, providing field time 
-                      and collaborative learning opportunities.
-                    </p>
-                    <p className="text-xs text-sky-600 font-semibold mt-2">Impact: 80+ students</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -200,8 +183,7 @@ const ImpactSustainability = () => {
                 <h4 className="font-bold text-slate-900">Year 1: Foundation (2025-2026)</h4>
                 <ul className="mt-2 space-y-1 text-sm text-slate-700">
                   <li>• Establish team knowledge base and documentation</li>
-                  <li>• Create mentor-mentee pairing system</li>
-                  <li>• Implement 65% parts reclamation target</li>
+                  <li>• Implement 43% parts reclamation target</li>
                   <li>• Document all custom designs for reuse</li>
                 </ul>
               </div>
@@ -213,7 +195,7 @@ const ImpactSustainability = () => {
                 <h4 className="font-bold text-slate-900">Year 2: Growth (2026-2027)</h4>
                 <ul className="mt-2 space-y-1 text-sm text-slate-700">
                   <li>• Junior members contribute to subsystem design</li>
-                  <li>• Expand outreach to 10+ schools</li>
+                  <li>• Expand outreach to 5+ schools</li>
                   <li>• Increase parts reuse to 75%</li>
                   <li>• Start alumni network for continued mentorship</li>
                 </ul>
@@ -276,7 +258,7 @@ const ImpactSustainability = () => {
                 <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
                   <span className="text-3xl">♻️</span>
                 </div>
-                <p className="text-3xl font-bold text-green-500">65%</p>
+                <p className="text-3xl font-bold text-green-500">43%</p>
                 <p className="text-sm text-slate-600 mt-1">Parts Reclaimed</p>
               </div>
               <p className="text-xs text-slate-700 text-center">

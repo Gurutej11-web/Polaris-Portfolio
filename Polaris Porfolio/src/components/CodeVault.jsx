@@ -6,57 +6,77 @@ const CodeVault = ({ judgeMode }) => {
   // PID Error Decay Data
   const pidData = [
     { time: 0, error: 100, setpoint: 0 },
-    { time: 50, error: 85, setpoint: 0 },
-    { time: 100, error: 60, setpoint: 0 },
-    { time: 150, error: 35, setpoint: 0 },
-    { time: 200, error: 18, setpoint: 0 },
-    { time: 250, error: 8, setpoint: 0 },
-    { time: 300, error: 3, setpoint: 0 },
-    { time: 350, error: 1, setpoint: 0 },
-    { time: 400, error: 0, setpoint: 0 },
-    { time: 450, error: 0, setpoint: 0 },
-    { time: 500, error: 0, setpoint: 0 },
+    { time: 40, error: 82, setpoint: 0 },
+    { time: 80, error: 72, setpoint: 0 },
+    { time: 120, error: 58, setpoint: 0 },
+    { time: 160, error: 45, setpoint: 0 },
+    { time: 200, error: 38, setpoint: 0 },
+    { time: 240, error: 38, setpoint: 0 },
+    { time: 280, error: 30, setpoint: 0 },
+    { time: 320, error: 22, setpoint: 0 },
+    { time: 360, error: 22, setpoint: 0 },
+    { time: 400, error: 14, setpoint: 0 },
+    { time: 440, error: 9, setpoint: 0 },
+    { time: 480, error: 6, setpoint: 0 },
+    { time: 520, error: 3, setpoint: 0 },
+    { time: 560, error: 2, setpoint: 0 },
+    { time: 600, error: 1, setpoint: 0 },
   ];
 
-  const pidCode = `public class PIDController {
-    private double kP, kI, kD;
+    const pidCode = `public class PIDController {
+
+    // Tuned PID constants (example values)
+    private double kP = 0.02;   // reacts to current error
+    private double kI = 0.0005; // fixes small steady-state error
+    private double kD = 0.001;  // smooths motion / reduces overshoot
+
     private double integral = 0;
     private double previousError = 0;
-    private double setpoint;
-    
-    public PIDController(double kP, double kI, double kD) {
-        this.kP = kP;
-        this.kI = kI;
-        this.kD = kD;
+    private double setpoint = 0;
+
+    // Optional: limit output power
+    private double maxOutput = 1.0;
+
+    public PIDController() {
+      // Using fixed values for this specific application
     }
-    
-    public double calculate(double measurement) {
-        double error = setpoint - measurement;
-        
-        // Proportional term
-        double P = kP * error;
-        
-        // Integral term (with anti-windup)
-        integral += error;
-        if (Math.abs(integral) > 100) {
-            integral = Math.signum(integral) * 100;
-        }
-        double I = kI * integral;
-        
-        // Derivative term
-        double derivative = error - previousError;
-        double D = kD * derivative;
-        previousError = error;
-        
-        // Total output
-        return P + I + D;
+
+    public double calculate(double currentAngle) {
+
+      // Error = how far we are from target angle
+      double error = setpoint - currentAngle;
+
+      // Proportional
+      double P = kP * error;
+
+      // Integral (anti-windup)
+      integral += error;
+      if (Math.abs(integral) > 50) {
+        integral = Math.signum(integral) * 50;
+      }
+      double I = kI * integral;
+
+      // Derivative
+      double derivative = error - previousError;
+      double D = kD * derivative;
+      previousError = error;
+
+      // PID output
+      double output = P + I + D;
+
+      // Clamp motor power
+      if (output > maxOutput) output = maxOutput;
+      if (output < -maxOutput) output = -maxOutput;
+
+      return output;
     }
-    
-    public void setSetpoint(double setpoint) {
-        this.setpoint = setpoint;
-        integral = 0; // Reset on new target
+
+    public void setSetpoint(double targetAngle) {
+      setpoint = targetAngle;
+      integral = 0;
+      previousError = 0;
     }
-}`;
+  }`;
 
   const autonomousCode = `@Autonomous(name = "4-Specimen Auto")
 public class FourSpecimenAuto extends LinearOpMode {
@@ -157,15 +177,15 @@ public class FourSpecimenAuto extends LinearOpMode {
               <div className="mt-4 grid grid-cols-3 gap-3">
                 <div className="glass-card p-3 text-center">
                   <p className="text-xs text-slate-600">Proportional</p>
-                  <p className="text-lg font-bold text-sky-500">kP = 0.045</p>
+                  <p className="text-lg font-bold text-sky-500">kP = 0.02</p>
                 </div>
                 <div className="glass-card p-3 text-center">
                   <p className="text-xs text-slate-600">Integral</p>
-                  <p className="text-lg font-bold text-cyan-400">kI = 0.008</p>
+                  <p className="text-lg font-bold text-cyan-400">kI = 0.0005</p>
                 </div>
                 <div className="glass-card p-3 text-center">
                   <p className="text-xs text-slate-600">Derivative</p>
-                  <p className="text-lg font-bold text-blue-500">kD = 0.012</p>
+                  <p className="text-lg font-bold text-blue-500">kD = 0.001</p>
                 </div>
               </div>
             </div>

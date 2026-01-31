@@ -2,14 +2,64 @@ import React from 'react';
 import { Target, TrendingUp, Zap, Map } from 'lucide-react';
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer } from 'recharts';
 
-const StrategicAnalysis = ({ judgeMode }) => {
-  const capabilityData = [
-    { subject: 'Speed', value: 88, fullMark: 100 },
-    { subject: 'Accuracy', value: 92, fullMark: 100 },
-    { subject: 'Reliability', value: 95, fullMark: 100 },
-    { subject: 'Auto Consistency', value: 94, fullMark: 100 },
-    { subject: 'Intake Efficiency', value: 87, fullMark: 100 },
+const StrategicAnalysis = () => {
+  const iterations = [
+    {
+      label: 'Iteration 1',
+      competition: 'Early Scrimmage',
+      score: 'Low (22 pts avg)',
+      notes: 'Baseline drivetrain, first intake prototype, limited scoring consistency.',
+      capability: [
+        { subject: 'Speed', value: 42, fullMark: 100 },
+        { subject: 'Accuracy', value: 38, fullMark: 100 },
+        { subject: 'Reliability', value: 35, fullMark: 100 },
+        { subject: 'Auto Consistency', value: 0, fullMark: 100 },
+        { subject: 'Intake Efficiency', value: 30, fullMark: 100 },
+      ],
+    },
+    {
+      label: 'Iteration 2',
+      competition: 'Qualifier 1',
+      score: 'Medium (38 pts avg)',
+      notes: 'Improved intake alignment and tuning, faster cycle development.',
+      capability: [
+        { subject: 'Speed', value: 60, fullMark: 100 },
+        { subject: 'Accuracy', value: 55, fullMark: 100 },
+        { subject: 'Reliability', value: 58, fullMark: 100 },
+        { subject: 'Auto Consistency', value: 0, fullMark: 100 },
+        { subject: 'Intake Efficiency', value: 52, fullMark: 100 },
+      ],
+    },
+    {
+      label: 'Iteration 3',
+      competition: 'Qualifier 2',
+      score: 'Near-Current (64 pts avg)',
+      notes: 'Launcher trajectory tracking and driver practice closed the gap.',
+      capability: [
+        { subject: 'Speed', value: 82, fullMark: 100 },
+        { subject: 'Accuracy', value: 84, fullMark: 100 },
+        { subject: 'Reliability', value: 86, fullMark: 100 },
+        { subject: 'Auto Consistency', value: 0, fullMark: 100 },
+        { subject: 'Intake Efficiency', value: 80, fullMark: 100 },
+      ],
+    },
+    {
+      label: 'Iteration 4',
+      competition: 'Current',
+      score: 'Current (78 pts avg)',
+      notes: 'Full autonomous integration with stable scoring cadence.',
+      capability: [
+        { subject: 'Speed', value: 88, fullMark: 100 },
+        { subject: 'Accuracy', value: 92, fullMark: 100 },
+        { subject: 'Reliability', value: 95, fullMark: 100 },
+        { subject: 'Auto Consistency', value: 94, fullMark: 100 },
+        { subject: 'Intake Efficiency', value: 87, fullMark: 100 },
+      ],
+    },
   ];
+
+  const [iterationIndex, setIterationIndex] = React.useState(3);
+  const capabilityData = iterations[iterationIndex].capability;
 
   return (
     <section id="strategic" className="py-20 px-6">
@@ -30,15 +80,10 @@ const StrategicAnalysis = ({ judgeMode }) => {
         </div>
 
         {/* Autonomous Visualizer */}
-        <div className={`glass-card p-8 mb-8 ${judgeMode ? 'judge-highlight' : ''}`}>
+        <div className="glass-card p-8 mb-8">
           <div className="flex items-center space-x-3 mb-6">
             <Map className="w-6 h-6 text-sky-500" />
             <h3 className="text-2xl font-bold text-slate-900">Autonomous Path Visualizer</h3>
-            {judgeMode && (
-              <span className="px-3 py-1 bg-cyan-400 text-slate-900 text-xs font-bold rounded-full">
-                JUDGE HIGHLIGHT
-              </span>
-            )}
           </div>
           
           <div className="grid lg:grid-cols-2 gap-8">
@@ -163,26 +208,52 @@ const StrategicAnalysis = ({ judgeMode }) => {
             </div>
 
             <div className="space-y-4">
-              {capabilityData.map((item, index) => (
-                <div key={index} className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="font-semibold text-slate-900">{item.subject}</span>
-                    <span className="text-sky-500 font-bold">{item.value}/100</span>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-slate-600">Competition</p>
+                    <p className="text-lg font-bold text-slate-900">{iterations[iterationIndex].competition}</p>
                   </div>
-                  <div className="w-full bg-slate-200 rounded-full h-3">
-                    <div
-                      className="bg-gradient-to-r from-sky-500 to-cyan-400 h-3 rounded-full transition-all duration-1000"
-                      style={{ width: `${item.value}%` }}
-                    />
+                  <div className="text-right">
+                    <p className="text-sm text-slate-600">Performance</p>
+                    <p className="text-lg font-bold text-sky-500">{iterations[iterationIndex].score}</p>
                   </div>
                 </div>
-              ))}
-              
-              <div className="mt-6 p-4 bg-sky-500/10 border border-sky-500/30 rounded-lg">
-                <p className="text-sm text-slate-700">
-                  <strong>Overall Score:</strong> Our robot achieves a balanced 91.2% capability index, 
-                  with particular strengths in reliability and autonomous consistency—critical factors for alliance selection.
-                </p>
+
+                <p className="text-sm text-slate-700">{iterations[iterationIndex].notes}</p>
+
+                <div className="mt-4">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-semibold text-slate-900">{iterations[iterationIndex].label}</span>
+                    <span className="text-xs text-slate-500">1–4</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max="3"
+                    step="1"
+                    value={iterationIndex}
+                    onChange={(event) => setIterationIndex(Number(event.target.value))}
+                    className="w-full accent-sky-500"
+                  />
+                </div>
+
+                <div className="mt-4 grid grid-cols-1 gap-3">
+                  {capabilityData.map((item, index) => (
+                    <div key={index} className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="font-semibold text-slate-900">{item.subject}</span>
+                        <span className="text-sky-500 font-bold">{item.value}/100</span>
+                      </div>
+                      <div className="w-full bg-slate-200 rounded-full h-3">
+                        <div
+                          className="bg-gradient-to-r from-sky-500 to-cyan-400 h-3 rounded-full transition-all duration-300"
+                          style={{ width: `${item.value}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

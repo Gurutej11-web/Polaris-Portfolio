@@ -2,14 +2,13 @@ import React from 'react';
 
 const LiveStats = () => {
   const stats = [
-    { label: 'Avg Cycle Time', value: '14.2s', icon: '⚡' },
-    { label: 'Est. OPR', value: '82.5', icon: '🎯' },
-    { label: 'Odometry Drift', value: '<0.5%', icon: '📍' },
+    { label: 'Point Increase', value: '32%', icon: '📈' },
+    { label: 'Parts Recycled', value: '42%', icon: '♻️' },
     { label: 'Robot Weight', value: '34.2 lbs', icon: '⚖️' },
     { label: 'Auto Consistency', value: '94.3%', icon: '🤖' },
-    { label: 'Sensor Loop', value: '65 Hz', icon: '🔄' },
-    { label: 'System Latency', value: '14ms', icon: '⚙️' },
-    { label: 'Parts Recycle', value: '65%', icon: '♻️' },
+    { label: 'Best Score', value: '247 pts', icon: '🏆' },
+    { label: 'Community Events', value: '2', icon: '🏫' },
+    { label: 'Outreach Hours', value: '430+', icon: '🤝' },
   ];
 
   return (

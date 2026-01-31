@@ -23,7 +23,7 @@ const Header = ({ judgeMode, setJudgeMode }) => {
             </div>
             <div>
               <h1 className="text-xl font-bold text-gradient">Polaris 23682</h1>
-              <p className="text-xs text-slate-600">Into the Deep</p>
+              <p className="text-xs text-slate-600">DEcode</p>
             </div>
           </div>
 

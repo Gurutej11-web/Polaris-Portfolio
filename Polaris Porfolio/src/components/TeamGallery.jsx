@@ -11,43 +11,43 @@ const TeamGallery = () => {
 
   const teamRoster = [
     {
-      title: '⚙️ Mechanical Team',
-      titleClass: 'text-sky-600',
-      members: [
-        { name: 'Sreehan', role: 'Mechanical Engineer' },
-        { name: 'Bhoumik', role: 'Mechanical Engineer' },
-        { name: 'Srivatsa', role: 'Mechanical Engineer' },
-        { name: 'Lalith', role: 'Mechanical Engineer' },
-      ],
-      summary: 'Responsible for robot construction, hex-based frame design, drivetrain assembly, and mechanical system integration.'
-    },
-    {
-      title: '💻 Coding Team',
+      title: '💻 Software',
       titleClass: 'text-cyan-500',
       members: [
-        { name: 'Gurutej', role: 'Software Developer' },
-        { name: 'Advik', role: 'Software Developer' },
-        { name: 'Pranav', role: 'Software Developer' },
+        { name: 'Advik', role: 'Software' },
+        { name: 'Weston', role: 'Software' },
+        { name: 'Gurutej', role: 'Software' },
       ],
-      summary: 'Develops autonomous routines, TeleOp controls, and sensor integration in Java. Achieved 64% autonomous success rate with 30 points per run.'
+      summary: 'Autonomous routines, TeleOp controls, and sensor integration.'
     },
     {
-      title: '🎨 Design Team',
+      title: '🎨 Design',
       titleClass: 'text-sky-600',
       members: [
-        { name: 'Landon', role: 'Designer' },
-        { name: 'Vince', role: 'Designer' },
+        { name: 'Landon', role: 'Design' },
+        { name: 'Grant', role: 'Design' },
+        { name: 'Srivatsa', role: 'Design' },
       ],
-      summary: 'CAD modeling, engineering notebook design, branding, and visual communications. Creates the professional image of Team Polaris.'
+      summary: 'CAD, presentation visuals, and design documentation.'
     },
     {
-      title: '📊 Management & Communications',
+      title: '🧰 Construction',
+      titleClass: 'text-sky-600',
+      members: [
+        { name: 'Sreehan', role: 'Construction' },
+        { name: 'Bhoumik', role: 'Construction' },
+        { name: 'Johnny', role: 'Construction' },
+      ],
+      summary: 'Fabrication, assembly, and mechanical integration.'
+    },
+    {
+      title: '📊 Management',
       titleClass: 'text-cyan-500',
       members: [
-        { name: 'Seshank', role: 'Communications' },
-        { name: 'Gurutej', role: 'Operations' },
+        { name: 'Seshank', role: 'Management' },
+        { name: 'Gurutej', role: 'Management' },
       ],
-      summary: 'Coordinates team operations, fundraising ($2,308 raised), community outreach (430+ volunteer hours), and competition strategy.'
+      summary: 'Operations, outreach coordination, and team planning.'
     },
   ];
 
@@ -159,23 +159,23 @@ const TeamGallery = () => {
         {/* Team Statistics */}
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
           <div className="glass-card p-6 text-center">
-            <p className="text-3xl font-bold text-sky-500">15</p>
+            <p className="text-3xl font-bold text-sky-500">10</p>
             <p className="text-sm text-slate-600 mt-1">Team Members</p>
           </div>
           <div className="glass-card p-6 text-center">
-            <p className="text-3xl font-bold text-cyan-400">3</p>
+            <p className="text-3xl font-bold text-cyan-400">1</p>
             <p className="text-sm text-slate-600 mt-1">Seasons Active</p>
           </div>
           <div className="glass-card p-6 text-center">
-            <p className="text-3xl font-bold text-blue-500">8</p>
+            <p className="text-3xl font-bold text-blue-500">0</p>
             <p className="text-sm text-slate-600 mt-1">Awards Won</p>
           </div>
           <div className="glass-card p-6 text-center">
-            <p className="text-3xl font-bold text-sky-600">500+</p>
+            <p className="text-3xl font-bold text-sky-600">300+</p>
             <p className="text-sm text-slate-600 mt-1">Build Hours</p>
           </div>
           <div className="glass-card p-6 text-center">
-            <p className="text-3xl font-bold text-cyan-500">12K+</p>
+            <p className="text-3xl font-bold text-cyan-500">6K+</p>
             <p className="text-sm text-slate-600 mt-1">Lines of Code</p>
           </div>
         </div>
