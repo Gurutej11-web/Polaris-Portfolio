@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polaris 26382 | Engineering Portfolio | FTC Into the Deep</title>
+    <meta name="description" content="Team Polaris 26382 - From $0 to championship contenders. Most improved team in FTC.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js for visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    
+    <!-- Print Styles -->
+    <style media="print">
+        header, .live-stats, .judge-mode-btn { display: none !important; }
+        body { background: white !important; }
+        .glass-card, .card { break-inside: avoid; }
+    </style>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ice-blue: #F0F9FF;
+            --sky-500: #0EA5E9;
+            --sky-600: #0284C7;
+            --cyan-400: #22D3EE;
+            --cyan-500: #06B6D4;
+            --slate-600: #475569;
+            --slate-700: #334155;
+            --slate-800: #1E293B;
+            --slate-900: #0F172A;
+            --green-500: #22C55E;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--ice-blue);
+            color: var(--slate-900);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Glass Card Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--sky-500), var(--cyan-400));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--sky-600), var(--cyan-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: var(--slate-600);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--slate-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--sky-500);
+        }
+
+        .judge-mode-btn {
+            padding: 0.5rem 1.5rem;
+            background: var(--slate-900);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .judge-mode-btn.active {
+            background: var(--cyan-400);
+            box-shadow: 0 0 20px var(--cyan-400);
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px var(--cyan-400); }
+            50% { box-shadow: 0 0 30px var(--cyan-400); }
+        }
+
+        /* Live Stats Ticker */
+        .live-stats {
+            background: var(--slate-900);
+            color: white;
+            padding: 1rem 0;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .stats-track {
+            display: flex;
+            animation: scroll 40s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .stat-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0 2rem;
+            font-size: 0.875rem;
+        }
+
+        .stat-value {
+            color: var(--cyan-400);
+            font-weight: 700;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h2 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--sky-600), var(--cyan-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            color: var(--slate-600);
+            margin-bottom: 1rem;
+        }
+
+        .hero-content .description {
+            font-size: 1.125rem;
+            color: var(--slate-600);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--sky-500), var(--cyan-400));
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--sky-600);
+            border: 2px solid var(--sky-500);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .stat-card .value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--sky-600);
+        }
+
+        .stat-card .label {
+            font-size: 0.875rem;
+            color: var(--slate-600);
+        }
+
+        .robot-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Section Styling */
+        section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--sky-500), var(--cyan-400));
+            color: white;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--slate-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--slate-600);
+        }
+
+        /* Content Cards */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card.judge-highlight,
+        .stat-card.judge-highlight,
+        .glass-card.judge-highlight,
+        .highlight-box.judge-highlight {
+            border: 2px solid var(--cyan-400) !important;
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.5), 0 0 50px rgba(14, 165, 233, 0.3), 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+            animation: glow 2s ease-in-out infinite !important;
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--slate-800);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--slate-900);
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--cyan-400);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 2rem 0;
+        }
+
+        /* Presentation Mode */
+        .presentation-controls {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .control-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--slate-900);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+
+        .control-btn:hover {
+            transform: scale(1.1);
+            background: var(--cyan-400);
+        }
+
+        /* Info Cards for Judges */
+        .info-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: linear-gradient(135deg, var(--sky-500), var(--cyan-400));
+            color: white;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(34, 211, 238, 0.15));
+            border-left: 4px solid var(--cyan-400);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-content h2 {
+                font-size: 3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .presentation-controls {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .control-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(6, 182, 212, 0.8), 0 0 60px rgba(14, 165, 233, 0.4); }
+        }
+
+        /* Section Indicator */
+        .section-indicator {
+            position: fixed;
+            bottom: 120px;
+            right: 20px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            z-index: 998;
+            display: block;
+            animation: slideInRight 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon">⭐</div>
+                <div class="logo-text">
+                    <h1>Polaris 26382</h1>
+                    <p>Grizzly Bots · Into the Deep</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#robot">Robot</a></li>
+                <li><a href="#engineering">Engineering</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#team">Team</a></li>
+            </ul>
+            <button class="judge-mode-btn" id="judgeModeBtn">⚡ Judge Mode</button>
+        </nav>
+    </header>
+
+    <!-- Live Stats Ticker -->
+    <div class="live-stats">
+        <div class="stats-track">
+            <div class="stat-item">💰 <span class="stat-value">$2,308</span> Raised</div>
+            <div class="stat-item">📈 <span class="stat-value">214%</span> Growth</div>
+            <div class="stat-item">♻️ <span class="stat-value">43%</span> Material Saved</div>
+            <div class="stat-item">⚖️ <span class="stat-value">18 lbs</span> Robot Weight</div>
+            <div class="stat-item">⚡ <span class="stat-value">8 mph</span> Max Speed</div>
+            <div class="stat-item">🎯 <span class="stat-value">64%</span> Auto Success</div>
+            <div class="stat-item">🏆 <span class="stat-value">247 pts</span> Best Score</div>
+            <div class="stat-item">📊 <span class="stat-value">+32%</span> Improvement</div>
+            <div class="stat-item">👥 <span class="stat-value">22</span> Members</div>
+            <div class="stat-item">🤝 <span class="stat-value">430+</span> Volunteer Hrs</div>
+            <div class="stat-item">🏁 <span class="stat-value">3</span> Competitions</div>
+            <div class="stat-item">� <span class="stat-value">Hex</span> Innovation</div>
+            <div class="stat-item">💻 <span class="stat-value">Java</span> Programming</div>
+            <div class="stat-item">⭐ <span class="stat-value">7→22</span> Team Growth</div>
+            <div class="stat-item">🚗 <span class="stat-value">Mecanum</span> Drivetrain</div>
+            <div class="stat-item">🎓 <span class="stat-value">#26382</span> Polaris</div>
+            <!-- Duplicate for seamless loop -->
+            <div class="stat-item">💰 <span class="stat-value">$2,308</span> Raised</div>
+            <div class="stat-item">📈 <span class="stat-value">214%</span> Growth</div>
+            <div class="stat-item">♻️ <span class="stat-value">43%</span> Material Saved</div>
+            <div class="stat-item">⚖️ <span class="stat-value">18 lbs</span> Robot Weight</div>
+            <div class="stat-item">⚡ <span class="stat-value">8 mph</span> Max Speed</div>
+            <div class="stat-item">🎯 <span class="stat-value">64%</span> Auto Success</div>
+            <div class="stat-item">🏆 <span class="stat-value">247 pts</span> Best Score</div>
+            <div class="stat-item">📊 <span class="stat-value">+32%</span> Improvement</div>
+            <div class="stat-item">👥 <span class="stat-value">22</span> Members</div>
+            <div class="stat-item">🤝 <span class="stat-value">430+</span> Volunteer Hrs</div>
+            <div class="stat-item">🏁 <span class="stat-value">3</span> Competitions</div>
+            <div class="stat-item">� <span class="stat-value">Hex</span> Innovation</div>
+            <div class="stat-item">💻 <span class="stat-value">Java</span> Programming</div>
+            <div class="stat-item">⭐ <span class="stat-value">7→22</span> Team Growth</div>
+            <div class="stat-item">🚗 <span class="stat-value">Mecanum</span> Drivetrain</div>
+            <div class="stat-item">🎓 <span class="stat-value">#26382</span> Polaris</div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div style="display: inline-block; padding: 0.5rem 1rem; background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(34, 211, 238, 0.2)); border-radius: 20px; margin-bottom: 1rem; border: 1px solid rgba(14, 165, 233, 0.3);">
+                <span style="font-size: 0.875rem; font-weight: 600; color: var(--sky-600);">FTC Team #26382 · Grizzly Bots</span>
+            </div>
+            
+            <h2>POLARIS</h2>
+            
+            <p class="subtitle">Into the Deep · 2025-2026</p>
+            
+            <p class="description">
+                From zero funding to championship contenders. Experience the journey of the 
+                most improved team in FTC, showcasing innovation, perseverance, and engineering excellence.
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="#robot" class="btn btn-primary">🤖 See Our Robot</a>
+                <a href="#engineering" class="btn btn-secondary">⚙️ Engineering Process</a>
+            </div>
+            
+            <div class="highlight-box" style="margin-top: 2rem;">
+                <p style="font-size: 1rem; color: var(--slate-700); margin: 0;">
+                    <strong>🏆 Competition Ready:</strong> From zip ties and cardboard to a championship-caliber robot through systematic engineering and iterative design.
+                </p>
+            </div>
+            
+            <!-- Quick Facts Panel for Judges -->
+            <div class="glass-card judge-highlight" style="padding: 1.5rem; margin-top: 2rem; border: 2px solid var(--cyan-400);">
+                <h4 style="text-align: center; margin-bottom: 1rem; color: var(--sky-600); font-size: 1.25rem;">⚡ Quick Facts for Judges</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; font-size: 0.9rem;">
+                    <div>
+                        <strong style="color: var(--sky-600);">Team Number:</strong> #26382
+                    </div>
+                    <div>
+                        <strong style="color: var(--sky-600);">Team Name:</strong> Polaris (Grizzly Bots)
+                    </div>
+                    <div>
+                        <strong style="color: var(--sky-600);">Season:</strong> Into the Deep 2025-2026
+                    </div>
+                    <div>
+                        <strong style="color: var(--sky-600);">Founded By:</strong> Gurutej Bandla & Seshank Bagavath
+                    </div>
+                    <div>
+                        <strong style="color: var(--sky-600);">Key Innovation:</strong> Hex-Based Frame (43% savings)
+                    </div>
+                    <div>
+                        <strong style="color: var(--sky-600);">Recognition:</strong> Most Improved Team in FTC
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="value">$2,308</div>
+                    <div class="label">Raised This Season</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value">214%</div>
+                    <div class="label">Growth in Members</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value">43%</div>
+                    <div class="label">Material Saved</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="robot-animation">
+            <svg viewBox="0 0 200 200" style="width: 100%; max-width: 400px;">
+                <defs>
+                    <linearGradient id="robotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#0EA5E9;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#22D3EE;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <!-- Robot Base -->
+                <rect x="60" y="140" width="80" height="40" rx="8" fill="url(#robotGrad)" opacity="0.8"/>
+                <!-- Wheels -->
+                <circle cx="75" cy="180" r="12" fill="var(--slate-800)"/>
+                <circle cx="125" cy="180" r="12" fill="var(--slate-800)"/>
+                <!-- Main Body -->
+                <rect x="50" y="80" width="100" height="60" rx="12" fill="url(#robotGrad)"/>
+                <!-- Lift Mechanism -->
+                <rect x="85" y="30" width="30" height="50" rx="4" fill="var(--cyan-400)" opacity="0.6"/>
+                <!-- Intake -->
+                <rect x="40" y="100" width="20" height="30" rx="6" fill="var(--sky-500)" opacity="0.7"/>
+                <!-- Details -->
+                <circle cx="80" cy="100" r="8" fill="white" opacity="0.8"/>
+                <circle cx="120" cy="100" r="8" fill="white" opacity="0.8"/>
+                <rect x="90" y="120" width="20" height="4" rx="2" fill="white" opacity="0.6"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Robot Section -->
+    <section id="robot">
+        <div class="section-header">
+            <div class="section-badge">ROBOT DESIGN</div>
+            <h2 class="section-title">Our Robot</h2>
+            <p class="section-subtitle">Hex-Based Design • Optimized Performance • 43% Material Reduction</p>
+        </div>
+
+        <!-- Robot Overview -->
+        <div class="glass-card" style="padding: 3rem; margin-bottom: 3rem;">
+            <h3 style="font-size: 2rem; margin-bottom: 2rem;">Design Philosophy</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div>
+                    <h4 style="color: var(--sky-600); font-size: 1.25rem; margin-bottom: 0.5rem;">⚡ Efficient</h4>
+                    <p style="color: var(--slate-600);">Hex-based construction saves 43% of materials while maintaining structural integrity and flexibility</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--cyan-500); font-size: 1.25rem; margin-bottom: 0.5rem;">🔧 Modular</h4>
+                    <p style="color: var(--slate-600);">Quick subsystem replacement and iterative improvements without complete rebuilds</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--sky-600); font-size: 1.25rem; margin-bottom: 0.5rem;">🎯 Reliable</h4>
+                    <p style="color: var(--slate-600);">Tested and proven design with consistent performance across multiple matches</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Robot Subsystems -->
+        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">Key Subsystems</h3>
+        <div class="content-grid">
+            <div class="card">
+                <h3>🚗 Mecanum Drivetrain</h3>
+                <div class="info-badge">MOBILITY</div>
+                <p style="color: var(--slate-600); margin: 1rem 0;"><strong>Type:</strong> Mecanum (Omni-directional)</p>
+                <p style="color: var(--slate-600); margin: 1rem 0;"><strong>Motors:</strong> 4x 6000 RPM motors</p>
+                <p style="color: var(--slate-600); margin: 1rem 0;"><strong>Max Speed:</strong> 8 mph (~11.7 ft/s)</p>
+                <p style="color: var(--slate-600); margin: 1rem 0;"><strong>Special Features:</strong> 360° strafe capability, field-centric control, precise positioning</p>
+                <p style="color: var(--slate-600); margin: 1rem 0;">Exceptional mobility with mecanum wheels enabling strafing and diagonal movement—critical for rapid game piece collection and precise autonomous positioning.</p>
+            </div>
+
+            <div class="card judge-highlight">
+                <h3>🔧 Hex-Based Frame</h3>
+                <div class="info-badge">INNOVATION</div>
+                <p style="color: var(--slate-600); margin: 1rem 0;"><strong>Material Savings:</strong> 43%</p>
+                <p style="color: var(--slate-600); margin: 1rem 0;"><strong>Weight Reduction:</strong> Lighter without sacrificing strength</p>
+                <p style="color: var(--slate-600); margin: 1rem 0;"><strong>Flexibility:</strong> Easy modifications and repairs</p>
+                <p style="color: var(--slate-600); margin: 1rem 0;">Revolutionary construction method that reduces environmental impact while improving performance.</p>
+            </div>
+
+            <div class="card judge-highlight">
+                <h3>📦 Advanced Intake System</h3>
+                <div class="info-badge">INNOVATION</div>
+                <p style="color: var(--slate-600); margin: 1rem 0;"><strong>Design Evolution:</strong> Rotating gear intake (previous iteration)</p>
+                <p style="color: var(--slate-600); margin: 1rem 0;"><strong>Current System:</strong> Optimized active collection mechanism</p>
+                <p style="color: var(--slate-600); margin: 1rem 0;"><strong>Capacity:</strong> Multi-element handling capability</p>
+                <p style="color: var(--slate-600); margin: 1rem 0;">Efficient game piece collection system refined through multiple design iterations. Our rotating gear intake prototype informed the current high-efficiency design, enabling rapid cycling for maximum scoring potential.</p>
+            </div>
+
+            <div class="card judge-highlight">
+                <h3>🚀 Swivel Mount Launcher</h3>
+                <div class="info-badge">SCORING</div>
+                <p style="color: var(--slate-600); margin: 1rem 0;"><strong>Design Evolution:</strong> Swivel mount system (previous iteration)</p>
+                <p style="color: var(--slate-600); margin: 1rem 0;"><strong>Innovation:</strong> Adjustable angle scoring mechanism</p>
+                <p style="color: var(--slate-600); margin: 1rem 0;"><strong>Advantage:</strong> Multiple scoring positions without robot movement</p>
+                <p style="color: var(--slate-600); margin: 1rem 0;">Advanced scoring mechanism developed through iterative design process. The swivel mount launcher represents our commitment to versatile, efficient scoring from multiple field positions.</p>
+            </div>
+        </div>
+
+        <!-- Robot Specs -->
+        <div class="glass-card" style="padding: 2rem; margin-top: 3rem;">
+            <h3 style="text-align: center; margin-bottom: 2rem;">Technical Specifications</h3>
+            <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="stat-card judge-highlight">
+                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚖️</div>
+                    <div class="value" style="font-size: 1.5rem;">18 lbs</div>
+                    <div class="label">Current Weight</div>
+                    <div style="font-size: 0.75rem; color: var(--green-500); margin-top: 0.5rem;">↓ 22% lighter (was 23 lbs)</div>
+                </div>
+                <div class="stat-card">
+                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡</div>
+                    <div class="value" style="font-size: 1.5rem;">8 mph</div>
+                    <div class="label">Max Speed</div>
+                    <div style="font-size: 0.75rem; color: var(--slate-600); margin-top: 0.5rem;">~11.7 ft/s</div>
+                </div>
+                <div class="stat-card judge-highlight">
+                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎯</div>
+                    <div class="value" style="font-size: 1.5rem;">30 pts</div>
+                    <div class="label">Autonomous Score</div>
+                    <div style="font-size: 0.75rem; color: var(--cyan-500); margin-top: 0.5rem;">64% success rate</div>
+                </div>
+                <div class="stat-card">
+                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🏆</div>
+                    <div class="value" style="font-size: 1.5rem;">247 pts</div>
+                    <div class="label">Best Match Score</div>
+                    <div style="font-size: 0.75rem; color: var(--green-500); margin-top: 0.5rem;">↑ 32% improvement</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering Process Section -->
+    <section id="engineering">
+        <div class="section-header">
+            <div class="section-badge">ENGINEERING PROCESS</div>
+            <h2 class="section-title">How We Build</h2>
+            <p class="section-subtitle">Iterative Design • Testing • Optimization</p>
+        </div>
+
+        <!-- Engineering Process Steps -->
+        <div class="content-grid">
+            <div class="card">
+                <h3>1️⃣ Identify Problem</h3>
+                <p style="color: var(--slate-600); margin-bottom: 1rem;">Started with major challenges: no funding, basic materials, need for efficient design</p>
+                <div class="highlight-box">
+                    <strong>Challenge:</strong> Build competitive robot with minimal resources
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>2️⃣ Research & Design</h3>
+                <p style="color: var(--slate-600); margin-bottom: 1rem;">Explored hex-based construction, analyzed material properties, CAD modeling</p>
+                <div class="highlight-box">
+                    <strong>Solution:</strong> Hex design reduces material by 43% while maintaining strength
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>3️⃣ Prototype & Test</h3>
+                <p style="color: var(--slate-600); margin-bottom: 1rem;">Built prototypes, stress tested components, measured performance metrics</p>
+                <div class="highlight-box">
+                    <strong>Result:</strong> Validated design meets requirements with improved efficiency
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>4️⃣ Iterate & Improve</h3>
+                <p style="color: var(--slate-600); margin-bottom: 1rem;">Refined based on testing, optimized for competition, documented improvements</p>
+                <div class="highlight-box">
+                    <strong>Outcome:</strong> Championship-ready robot from continuous improvement
+                </div>
+            </div>
+        </div>
+
+        <!-- Programming -->
+        <div class="glass-card" style="padding: 3rem; margin-top: 3rem;">
+            <h3 style="font-size: 2rem; margin-bottom: 2rem;">Software Engineering</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <div class="judge-highlight">
+                    <h4 style="color: var(--sky-600); font-size: 1.25rem; margin-bottom: 1rem;">🤖 Autonomous</h4>
+                    <p style="color: var(--slate-600); margin-bottom: 0.5rem;"><strong>Language:</strong> Java</p>
+                    <p style="color: var(--slate-600); margin-bottom: 0.5rem;"><strong>Success Rate:</strong> 64% (14 test runs)</p>
+                    <p style="color: var(--slate-600); margin-bottom: 0.5rem;"><strong>Avg Points:</strong> 30 points per successful run</p>
+                    <p style="color: var(--slate-600); margin-bottom: 0.5rem;"><strong>Sensors:</strong> Distance sensors + QR code scanners</p>
+                    <p style="color: var(--slate-600);">Reliable autonomous routines with advanced sensor integration for precise path planning and game piece detection. QR code scanning enables dynamic strategy adaptation mid-match.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--cyan-500); font-size: 1.25rem; margin-bottom: 1rem;">🎮 TeleOp</h4>
+                    <p style="color: var(--slate-600); margin-bottom: 0.5rem;"><strong>Language:</strong> Java</p>
+                    <p style="color: var(--slate-600); margin-bottom: 0.5rem;"><strong>Control:</strong> Dual gamepad with field-centric drive</p>
+                    <p style="color: var(--slate-600); margin-bottom: 0.5rem;"><strong>Features:</strong> Preset positions, precision controls</p>
+                    <p style="color: var(--slate-600);">Intuitive driver controls leveraging mecanum drivetrain for superior maneuverability. Field-centric driving simplifies operator mental model during high-pressure moments.</p>
+                </div>
+                <div class="judge-highlight">
+                    <h4 style="color: var(--sky-600); font-size: 1.25rem; margin-bottom: 1rem;">📊 Advanced Sensors</h4>
+                    <p style="color: var(--slate-600); margin-bottom: 0.5rem;"><strong>Distance Sensors:</strong> Proximity detection and collision avoidance</p>
+                    <p style="color: var(--slate-600); margin-bottom: 0.5rem;"><strong>QR Code Scanners:</strong> Dynamic game element detection</p>
+                    <p style="color: var(--slate-600); margin-bottom: 0.5rem;"><strong>Integration:</strong> Real-time sensor fusion in Java</p>
+                    <p style="color: var(--slate-600);">Sophisticated sensor suite enabling accurate positioning, obstacle detection, and adaptive autonomous strategies based on real-time game state.</p>
+                </div>
+            </div>
+            
+            <!-- Design Iterations Showcase -->
+            <div style="margin-top: 3rem; padding: 2rem; background: rgba(14, 165, 233, 0.05); border-radius: 12px; border-left: 4px solid var(--cyan-400);">
+                <h4 style="color: var(--sky-600); font-size: 1.5rem; margin-bottom: 1.5rem;">🔄 Design Evolution & Iterations</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div>
+                        <strong style="color: var(--cyan-600);">Iteration 1: Rotating Gear Intake</strong>
+                        <p style="color: var(--slate-600); font-size: 0.9rem; margin-top: 0.5rem;">Explored gear-based collection mechanism. Validated concept but identified efficiency improvements needed.</p>
+                    </div>
+                    <div>
+                        <strong style="color: var(--cyan-600);">Iteration 2: Swivel Mount Launcher</strong>
+                        <p style="color: var(--slate-600); font-size: 0.9rem; margin-top: 0.5rem;">Developed adjustable-angle scoring system. Enabled multi-position scoring without robot repositioning.</p>
+                    </div>
+                    <div>
+                        <strong style="color: var(--cyan-600);">Current: Optimized Integration</strong>
+                        <p style="color: var(--slate-600); font-size: 0.9rem; margin-top: 0.5rem;">Combined best elements from iterations into refined, competition-ready design.</p>
+                    </div>
+                </div>
+                <p style="margin-top: 1.5rem; font-style: italic; color: var(--slate-600);">
+                    <strong>Engineering Philosophy:</strong> Each iteration taught us valuable lessons about efficiency, reliability, and competitive advantage. This iterative approach is the foundation of our "Most Improved Team" recognition.
+                </p>
+            </div>
+        </div>
+
+        <!-- Competition Performance -->
+        <div class="glass-card judge-highlight" style="padding: 2rem; margin-top: 3rem;">
+            <h3 style="text-align: center; margin-bottom: 1rem;">📊 2025-2026 Season Competition Performance</h3>
+            <p style="text-align: center; color: var(--green-500); font-size: 1.1rem; font-weight: 600; margin-bottom: 2rem;">
+                ↑ 32% Score Improvement Since Season Start
+            </p>
+            <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+                <div class="stat-card judge-highlight">
+                    <div class="value" style="font-size: 1.75rem;">3</div>
+                    <div class="label">Competitions</div>
+                    <div style="font-size: 0.75rem; color: var(--slate-600); margin-top: 0.5rem;">Completed this season</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value" style="font-size: 1.75rem;">183 pts</div>
+                    <div class="label">First Competition</div>
+                    <div style="font-size: 0.75rem; color: var(--slate-600); margin-top: 0.5rem;">Starting baseline</div>
+                </div>
+                <div class="stat-card judge-highlight">
+                    <div class="value" style="font-size: 1.75rem; color: var(--green-500);">247 pts</div>
+                    <div class="label">Best Match Score</div>
+                    <div style="font-size: 0.75rem; color: var(--green-500); margin-top: 0.5rem;">↑ 64 pts improvement</div>
+                </div>
+                <div class="stat-card judge-highlight">
+                    <div class="value" style="font-size: 1.75rem; color: var(--cyan-500);">+32%</div>
+                    <div class="label">Score Growth</div>
+                    <div style="font-size: 0.75rem; color: var(--slate-600); margin-top: 0.5rem;">Competition 1 → 3</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(34, 211, 238, 0.1); border-radius: 12px;">
+                <h4 style="color: var(--sky-600); margin-bottom: 1rem;">🏆 Season Progress Highlights</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; font-size: 0.9rem; color: var(--slate-600);">
+                    <div>
+                        <strong style="color: var(--cyan-600);">Competition 1:</strong> 183 points - Established baseline performance
+                    </div>
+                    <div>
+                        <strong style="color: var(--cyan-600);">Competition 2:</strong> Iterative improvements, refined autonomous
+                    </div>
+                    <div>
+                        <strong style="color: var(--cyan-600);">Competition 3:</strong> 247 points - Highest score achieved, +32% improvement
+                    </div>
+                </div>
+                <p style="margin-top: 1rem; font-style: italic; text-align: center;">
+                    Our consistent improvement demonstrates the power of systematic engineering and iterative design. Each competition informs the next evolution of our robot.
+                </p>
+            </div>
+            
+            <p style="text-align: center; margin-top: 2rem; color: var(--slate-600); font-style: italic;">
+                Awards: Building towards recognition through consistent performance improvement and community impact
+            </p>
+        </div>
+    </section>
+
+    <!-- Impact & Journey Section -->
+    <section id="impact">
+        <div class="section-header">
+            <div class="section-badge">IMPACT & SUSTAINABILITY</div>
+            <h2 class="section-title">Our Journey</h2>
+            <p class="section-subtitle">From Zero to Hero: The Polaris Story</p>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 3rem;">
+            <div class="stat-card">
+                <div class="value" style="color: var(--sky-600);">$2,308</div>
+                <div class="label">Raised This Season</div>
+            </div>
+            <div class="stat-card">
+                <div class="value" style="color: var(--cyan-500);">214%</div>
+                <div class="label">Member Growth</div>
+            </div>
+            <div class="stat-card">
+                <div class="value" style="color: var(--sky-600);">43%</div>
+                <div class="label">Material Saved</div>
+            </div>
+            <div class="stat-card">
+                <div class="value" style="color: var(--cyan-500);">22</div>
+                <div class="label">Team Members</div>
+            </div>
+        </div>
+
+        <!-- Journey Cards -->
+        <div class="content-grid">
+            <div class="card">
+                <h3>💡 From Zero to Hero</h3>
+                <p style="color: var(--slate-600);">Started with $0 funding, 0 sponsors, and a robot held together by zip ties and cardboard. Seemed destined for failure, but we never gave up.</p>
+            </div>
+            
+            <div class="card">
+                <h3>📈 214% Team Growth</h3>
+                <p style="color: var(--slate-600);">Expanded from 7 consistent members to 22 dedicated team members. Built a sustainable robotics community for the future.</p>
+            </div>
+            
+            <div class="card judge-highlight">
+                <h3>♻️ 43% Material Savings</h3>
+                <p style="color: var(--slate-600);">Hex-based design optimization gave us flexibility while saving nearly half of required materials. Sustainability meets performance.</p>
+            </div>
+            
+            <div class="card">
+                <h3>🏆 Most Improved Team</h3>
+                <p style="color: var(--slate-600);">Transformed from underdogs to championship contenders through perseverance. Scored better every single game.</p>
+            </div>
+        </div>
+
+        <!-- Community Outreach & Impact -->
+        <div class="glass-card judge-highlight" style="padding: 3rem; margin-top: 3rem;">
+            <h3 style="font-size: 2rem; text-align: center; margin-bottom: 1rem;">🌎 Community Outreach & Impact</h3>
+            <p style="text-align: center; font-size: 1.1rem; color: var(--cyan-600); font-weight: 600; margin-bottom: 3rem;">
+                430+ Volunteer Hours Inspiring the Next Generation
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                <div class="card">
+                    <h4 style="color: var(--sky-600); font-size: 1.25rem; margin-bottom: 1rem;">🏫 Tom Glenn High School</h4>
+                    <p style="color: var(--slate-700); margin-bottom: 0.5rem;"><strong>Event:</strong> "Meet Your Future Night"</p>
+                    <p style="color: var(--slate-600); font-size: 0.95rem;">Demonstrated the transformative power of robotics and engineering to high school students. Showcased career pathways in STEM and inspired future engineers through live robot demonstrations and hands-on activities.</p>
+                </div>
+                
+                <div class="card">
+                    <h4 style="color: var(--cyan-500); font-size: 1.25rem; margin-bottom: 1rem;">🎓 North Elementary School</h4>
+                    <p style="color: var(--slate-700); margin-bottom: 0.5rem;"><strong>Event:</strong> "STEM Night"</p>
+                    <p style="color: var(--slate-600); font-size: 0.95rem;">Educated elementary-age children about STEM concepts through interactive activities. Made engineering accessible and exciting for young minds, planting seeds for future STEM careers.</p>
+                </div>
+                
+                <div class="card judge-highlight">
+                    <h4 style="color: var(--sky-600); font-size: 1.25rem; margin-bottom: 1rem;">🤝 Team Collaboration</h4>
+                    <p style="color: var(--slate-700); margin-bottom: 0.5rem;"><strong>Total Impact:</strong> 430+ volunteer hours</p>
+                    <p style="color: var(--slate-600); font-size: 0.95rem;">Beyond robotics competitions, our team actively collaborates to give back to the community. Every member contributes to outreach activities, demonstrating that FIRST values extend beyond the competition field.</p>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(34, 211, 238, 0.1)); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--cyan-400);">
+                <h4 style="color: var(--sky-600); margin-bottom: 1rem; font-size: 1.25rem;">💡 Why Outreach Matters to Us</h4>
+                <p style="color: var(--slate-600); line-height: 1.8;">
+                    We started with nothing—no funding, no sponsors, and a robot held together by zip ties. Community support helped us grow. Now, we're paying it forward by inspiring the next generation of engineers and problem-solvers. Our 430+ volunteer hours represent not just time spent, but futures changed through STEM education.
+                </p>
+                <p style="color: var(--slate-600); margin-top: 1rem; font-style: italic;">
+                    <strong>"Gracious Professionalism"</strong> isn't just a FIRST value—it's how Team Polaris operates every day.
+                </p>
+            </div>
+        </div>
+
+        <!-- The Polaris Difference -->
+        <div class="glass-card" style="padding: 3rem; margin-top: 3rem;">
+            <h3 style="font-size: 2rem; text-align: center; margin-bottom: 2rem;">The Polaris Way</h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                <div style="text-align: center; padding: 1.5rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💪</div>
+                    <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Perseverance</h4>
+                    <p style="color: var(--slate-600); font-size: 0.875rem;">Never giving up, even when starting with zip ties and cardboard</p>
+                </div>
+                
+                <div style="text-align: center; padding: 1.5rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🤝</div>
+                    <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Connection</h4>
+                    <p style="color: var(--slate-600); font-size: 0.875rem;">Building a team capable of working together through any challenge</p>
+                </div>
+                
+                <div style="text-align: center; padding: 1.5rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💡</div>
+                    <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Innovation</h4>
+                    <p style="color: var(--slate-600); font-size: 0.875rem;">Optimizing designs to save 43% of materials without sacrificing performance</p>
+                </div>
+                
+                <div style="text-align: center; padding: 1.5rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📈</div>
+                    <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Improvement</h4>
+                    <p style="color: var(--slate-600); font-size: 0.875rem;">The most improved team in FTC—scoring better every single game</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(34, 211, 238, 0.1)); border-radius: 12px; text-align: center;">
+                <p style="font-size: 1.25rem; font-style: italic; color: var(--slate-700); line-height: 1.8;">
+                    "Polaris taught our team how to connect, conflict, and build upon one another, leading to what might be the <strong>most improved team in all of FTC</strong>."
+                </p>
+            </div>
+        </div>
+
+        <!-- Growth Chart -->
+        <div class="glass-card" style="padding: 2rem; margin-top: 3rem;">
+            <h3 style="text-align: center; margin-bottom: 2rem; font-size: 1.75rem;">Team Growth Over Time</h3>
+            <div class="chart-container">
+                <canvas id="growthChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <div class="section-header">
+            <div class="section-badge">OUR TEAM</div>
+            <h2 class="section-title">Meet Polaris 26382</h2>
+            <p class="section-subtitle">The 22-Member Team Behind Our Success</p>
+        </div>
+
+        <!-- Founders -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+            <div class="card judge-highlight" style="text-align: center;">
+                <div style="width: 96px; height: 96px; margin: 0 auto 1rem; background: linear-gradient(135deg, var(--sky-500), var(--cyan-400)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem;">
+                    👤
+                </div>
+                <h3 style="font-size: 1.75rem;">Gurutej Bandla</h3>
+                <p style="color: var(--sky-600); font-weight: 600; margin-bottom: 0.5rem; font-size: 1rem;">Co-Founder, Team Lead & Coding Lead</p>
+                <div style="display: inline-block; background: rgba(14, 165, 233, 0.1); padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.85rem; margin-bottom: 1rem;">
+                    <strong style="color: var(--sky-600);">Coding Team</strong> + <strong style="color: var(--cyan-600)">Management</strong>
+                </div>
+                <p style="color: var(--slate-600);">Visionary leader who transformed Polaris from a zero-budget startup to a championship-caliber team. Leads software development in Java and manages team strategy, fundraising, and competition planning.</p>
+            </div>
+
+            <div class="card judge-highlight" style="text-align: center;">
+                <div style="width: 96px; height: 96px; margin: 0 auto 1rem; background: linear-gradient(135deg, var(--cyan-500), var(--sky-400)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem;">
+                    💻
+                </div>
+                <h3 style="font-size: 1.75rem;">Seshank Bagavath</h3>
+                <p style="color: var(--cyan-600); font-weight: 600; margin-bottom: 0.5rem; font-size: 1rem;">Co-Founder, Engineering Lead & Communications</p>
+                <div style="display: inline-block; background: rgba(34, 211, 238, 0.1); padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.85rem; margin-bottom: 1rem;">
+                    <strong style="color: var(--cyan-600);">Management</strong> + <strong style="color: var(--sky-600)">Communication</strong>
+                </div>
+                <p style="color: var(--slate-600);">Engineering mastermind behind the hex-based design optimization and material conservation strategies. Oversees team communications, documentation, and the innovative approaches that define Team Polaris.</p>
+            </div>
+        </div>
+        
+        <!-- Team Structure -->
+        <div class="glass-card" style="padding: 3rem; margin-bottom: 3rem;">
+            <h3 style="font-size: 2rem; text-align: center; margin-bottom: 2rem;">🏗️ Team Structure & Specializations</h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <div class="card">
+                    <h4 style="color: var(--sky-600); font-size: 1.25rem; margin-bottom: 1rem;">⚙️ Mechanical Team</h4>
+                    <ul style="list-style: none; padding: 0; color: var(--slate-600);">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(148, 163, 184, 0.2);">
+                            <strong>Sreehan</strong> - Mechanical Engineer
+                        </li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(148, 163, 184, 0.2);">
+                            <strong>Bhoumik</strong> - Mechanical Engineer
+                        </li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(148, 163, 184, 0.2);">
+                            <strong>Srivatsa</strong> - Mechanical Engineer
+                        </li>
+                        <li style="padding: 0.5rem 0;">
+                            <strong>Lalith</strong> - Mechanical Engineer
+                        </li>
+                    </ul>
+                    <p style="color: var(--slate-600); font-size: 0.9rem; margin-top: 1rem; font-style: italic;">
+                        Responsible for robot construction, hex-based frame design, drivetrain assembly, and mechanical system integration.
+                    </p>
+                </div>
+                
+                <div class="card judge-highlight">
+                    <h4 style="color: var(--cyan-500); font-size: 1.25rem; margin-bottom: 1rem;">💻 Coding Team</h4>
+                    <ul style="list-style: none; padding: 0; color: var(--slate-600);">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(148, 163, 184, 0.2);">
+                            <strong>Gurutej</strong> - Lead Programmer
+                        </li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(148, 163, 184, 0.2);">
+                            <strong>Advik</strong> - Software Developer
+                        </li>
+                        <li style="padding: 0.5rem 0;">
+                            <strong>Pranav</strong> - Software Developer
+                        </li>
+                    </ul>
+                    <p style="color: var(--slate-600); font-size: 0.9rem; margin-top: 1rem; font-style: italic;">
+                        Develops autonomous routines, TeleOp controls, and sensor integration in Java. Achieved 64% autonomous success rate with 30 points per run.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h4 style="color: var(--sky-600); font-size: 1.25rem; margin-bottom: 1rem;">🎨 Design Team</h4>
+                    <ul style="list-style: none; padding: 0; color: var(--slate-600);">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(148, 163, 184, 0.2);">
+                            <strong>Landon</strong> - Designer
+                        </li>
+                        <li style="padding: 0.5rem 0;">
+                            <strong>Vince</strong> - Designer
+                        </li>
+                    </ul>
+                    <p style="color: var(--slate-600); font-size: 0.9rem; margin-top: 1rem; font-style: italic;">
+                        CAD modeling, engineering notebook design, branding, and visual communications. Creates the professional image of Team Polaris.
+                    </p>
+                </div>
+                
+                <div class="card judge-highlight">
+                    <h4 style="color: var(--cyan-500); font-size: 1.25rem; margin-bottom: 1rem;">📊 Management & Communications</h4>
+                    <ul style="list-style: none; padding: 0; color: var(--slate-600);">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(148, 163, 184, 0.2);">
+                            <strong>Seshank</strong> - Co-Founder & Communications Lead
+                        </li>
+                        <li style="padding: 0.5rem 0;">
+                            <strong>Gurutej</strong> - Co-Founder & Team Manager
+                        </li>
+                    </ul>
+                    <p style="color: var(--slate-600); font-size: 0.9rem; margin-top: 1rem; font-style: italic;">
+                        Coordinates team operations, fundraising ($2,308 raised), community outreach (430+ volunteer hours), and competition strategy.
+                    </p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem; padding: 2rem; background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(34, 211, 238, 0.1)); border-radius: 12px;">
+                <p style="text-align: center; font-size: 1.1rem; color: var(--slate-700);">
+                    <strong>22 dedicated team members</strong> working across 4 specialized sub-teams, united by a shared vision of excellence in engineering and gracious professionalism. From 7 founding members to a thriving community—that's <strong>214% growth</strong>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Team Stats -->
+        <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+            <div class="stat-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">👥</div>
+                <div class="value">22</div>
+                <div class="label">Team Members</div>
+            </div>
+            
+            <div class="stat-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">📈</div>
+                <div class="value">214%</div>
+                <div class="label">Growth Rate</div>
+            </div>
+            
+            <div class="stat-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎯</div>
+                <div class="value">$2,308</div>
+                <div class="label">Raised</div>
+            </div>
+            
+            <div class="stat-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">💡</div>
+                <div class="value">43%</div>
+                <div class="label">Material Saved</div>
+            </div>
+            
+            <div class="stat-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏆</div>
+                <div class="value">#1</div>
+                <div class="label">Most Improved</div>
+            </div>
+        </div>
+
+        <!-- Team Values & Approach -->
+        <div class="glass-card" style="padding: 3rem; margin-top: 3rem;">
+            <h3 style="text-align: center; font-size: 2rem; margin-bottom: 2rem;">What Makes Polaris Different</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div class="card judge-highlight">
+                    <h4 style="color: var(--sky-600); font-size: 1.25rem; margin-bottom: 1rem;">🎯 Resourcefulness</h4>
+                    <p style="color: var(--slate-600);">Started with $0 and basic materials. Learned to innovate with constraints, turning limitations into competitive advantages through clever engineering.</p>
+                </div>
+                
+                <div class="card">
+                    <h4 style="color: var(--cyan-500); font-size: 1.25rem; margin-bottom: 1rem;">🔄 Iterative Design</h4>
+                    <p style="color: var(--slate-600);">Systematic approach: identify problems, research solutions, prototype rapidly, test thoroughly, and iterate continuously until excellence is achieved.</p>
+                </div>
+                
+                <div class="card judge-highlight">
+                    <h4 style="color: var(--sky-600); font-size: 1.25rem; margin-bottom: 1rem;">♻️ Sustainability Focus</h4>
+                    <p style="color: var(--slate-600);">43% material savings isn't just efficient—it's environmentally responsible. We prove that performance and sustainability can go hand-in-hand.</p>
+                </div>
+                
+                <div class="card">
+                    <h4 style="color: var(--cyan-500); font-size: 1.25rem; margin-bottom: 1rem;">📚 Knowledge Sharing</h4>
+                    <p style="color: var(--slate-600);">Grew from 7 to 22 members by mentoring new team members and sharing expertise. Building a sustainable robotics community for the future.</p>
+                </div>
+                
+                <div class="card judge-highlight">
+                    <h4 style="color: var(--sky-600); font-size: 1.25rem; margin-bottom: 1rem;">🚀 Never Give Up Attitude</h4>
+                    <p style="color: var(--slate-600);">From zip ties and cardboard to championship readiness. When everyone counted us out, we doubled down and proved that determination beats resources.</p>
+                </div>
+                
+                <div class="card">
+                    <h4 style="color: var(--cyan-500); font-size: 1.25rem; margin-bottom: 1rem;">⚙️ Engineering Excellence</h4>
+                    <p style="color: var(--slate-600);">Every design choice is documented, tested, and optimized. Our engineering notebook reflects the same rigor we apply to our robot construction.</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box" style="margin-top: 2rem; text-align: center; padding: 2rem;">
+                <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">📖 Our Story in Numbers</h4>
+                <p style="font-size: 1.1rem; line-height: 1.8;">
+                    <strong>7 members</strong> → <strong>22 members</strong> (214% growth) <br>
+                    <strong>$0 raised</strong> → <strong>$2,308 raised</strong> (infinite % increase!) <br>
+                    <strong>Zip ties & cardboard</strong> → <strong>Championship-ready robot</strong> <br>
+                    <strong>Zero sponsors</strong> → <strong>Community support</strong> <br>
+                    <strong>"No chance to compete"</strong> → <strong>"Most Improved Team in FTC"</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--sky-500), var(--cyan-400)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px;">⭐</div>
+                    <div>
+                        <h4 style="margin: 0;">Polaris</h4>
+                        <p style="margin: 0; font-size: 0.75rem; color: rgba(255,255,255,0.6);">#26382 · Grizzly Bots</p>
+                    </div>
+                </div>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">From zero funding to championship contenders. The most improved team in FTC.</p>
+                <p style="color: rgba(255,255,255,0.5); font-size: 0.875rem;">Into the Deep · 2025-2026 Season</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#hero">Home</a>
+                <a href="#robot">Robot</a>
+                <a href="#engineering">Engineering</a>
+                <a href="#impact">Impact</a>
+                <a href="#team">Team</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <a href="#">Engineering Notebook</a>
+                <a href="#">CAD Files</a>
+                <a href="#">Code Repository</a>
+                <a href="#">Documentation</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <a href="mailto:team@polaris26382.com">📧 team@polaris26382.com</a>
+                <a href="https://github.com/polaris26382">🐙 @polaris26382</a>
+                <div style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 12px; text-align: center;">
+                    <div style="font-size: 4rem;">📱</div>
+                    <p style="font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 0.5rem;">Scan for Portfolio</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025-2026 Polaris FTC Team #26382 · Grizzly Bots. Most Improved Team in FTC.</p>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1rem;">
+                <div style="width: 8px; height: 8px; background: var(--green-500); border-radius: 50%; animation: pulse 2s infinite;"></div>
+                <span>Portfolio Online</span>
+            </div>
+            <p style="margin-top: 0.5rem; font-size: 0.75rem;">Designed by Gurutej Bandla & Seshank Bagavath</p>
+        </div>
+    </footer>
+
+    <!-- Presentation Controls -->
+    <div class="presentation-controls">
+        <button class="control-btn" id="prevBtn" title="Previous Section (← Arrow Key)">◀</button>
+        <button class="control-btn" id="nextBtn" title="Next Section (→ Arrow or Space)">▶</button>
+        <button class="control-btn" id="printBtn" title="Print Portfolio (P Key)">🖨️</button>
+    </div>
+
+    <!-- Section Indicator -->
+    <div class="section-indicator" id="sectionIndicator">1/5: Hero</div>
+
+    <script>
+        // Judge Mode Toggle - Highlights ALL key innovations and achievements
+        const judgeModeBtn = document.getElementById('judgeModeBtn');
+        let judgeModeActive = false;
+
+        judgeModeBtn.addEventListener('click', () => {
+            judgeModeActive = !judgeModeActive;
+            judgeModeBtn.classList.toggle('active');
+            
+            // Update button text to show status
+            const btnText = judgeModeBtn.querySelector('span');
+            if (judgeModeActive) {
+                btnText.textContent = '⚡ Judge Mode: ON';
+            } else {
+                btnText.textContent = '⚡ Judge Mode';
+            }
+            
+            // Toggle judge-highlight on ALL innovation and achievement elements
+            const cards = document.querySelectorAll('.card, .stat-card, .glass-card, .highlight-box');
+            cards.forEach((card) => {
+                const text = card.textContent.toLowerCase();
+                // Highlight cards with key achievements, innovations, or important metrics
+                if (text.includes('43%') || 
+                    text.includes('214%') || 
+                    text.includes('$2,308') || 
+                    text.includes('hex') || 
+                    text.includes('innovation') ||
+                    text.includes('material savings') ||
+                    text.includes('most improved') ||
+                    text.includes('systematic') ||
+                    text.includes('iterative') ||
+                    text.includes('from zero to hero') ||
+                    text.includes('founded') ||
+                    text.includes('gurutej') ||
+                    text.includes('seshank') ||
+                    card.classList.contains('judge-highlight') ||
+                    card.querySelector('.info-badge')) {
+                    card.classList.toggle('judge-highlight');
+                }
+            });
+            
+            // Show notification
+            showNotification(judgeModeActive ? 
+                '🌟 Judge Mode Activated! Key innovations are now highlighted.' : 
+                'Judge Mode Deactivated');
+        });
+
+        // Notification System
+        function showNotification(message) {
+            // Remove existing notification if present
+            const existing = document.querySelector('.notification');
+            if (existing) existing.remove();
+            
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: linear-gradient(135deg, var(--sky-500), var(--cyan-400));
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 12px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+                z-index: 10000;
+                font-weight: 600;
+                animation: slideInRight 0.3s ease;
+                max-width: 300px;
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Presentation Navigation - Ensures sections are FULLY visible
+        const sections = ['hero', 'robot', 'engineering', 'impact', 'team'];
+        let currentSection = 0;
+        const headerHeight = 80; // Fixed header height
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const sectionTop = section.offsetTop - headerHeight;
+                window.scrollTo({
+                    top: sectionTop,
+                    behavior: 'smooth'
+                });
+                
+                // Update current section indicator
+                updateSectionIndicator();
+            }
+        }
+
+        function updateSectionIndicator() {
+            // Show which section we're on
+            const sectionName = sections[currentSection].charAt(0).toUpperCase() + sections[currentSection].slice(1);
+            const indicator = document.getElementById('sectionIndicator');
+            if (indicator) {
+                indicator.textContent = `${currentSection + 1}/${sections.length}: ${sectionName}`;
+            }
+        }
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentSection = (currentSection + 1) % sections.length;
+            scrollToSection(sections[currentSection]);
+            showNotification(`📍 Section ${currentSection + 1}/${sections.length}: ${sections[currentSection].toUpperCase()}`);
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentSection = (currentSection - 1 + sections.length) % sections.length;
+            scrollToSection(sections[currentSection]);
+            showNotification(`📍 Section ${currentSection + 1}/${sections.length}: ${sections[currentSection].toUpperCase()}`);
+        });
+
+        document.getElementById('printBtn').addEventListener('click', () => {
+            showNotification('🖨️ Opening Print Dialog...');
+            setTimeout(() => window.print(), 500);
+        });
+
+        // Keyboard navigation for presentations
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                document.getElementById('nextBtn').click();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                document.getElementById('prevBtn').click();
+            } else if (e.key === 'j' || e.key === 'J') {
+                e.preventDefault();
+                judgeModeBtn.click();
+            } else if (e.key === 'p' || e.key === 'P') {
+                e.preventDefault();
+                document.getElementById('printBtn').click();
+            } else if (e.key === 'h' || e.key === 'H') {
+                e.preventDefault();
+                showKeyboardHelp();
+            }
+        });
+
+        // Show keyboard shortcuts help
+        function showKeyboardHelp() {
+            const help = `
+🎮 KEYBOARD SHORTCUTS:
+→ or Space = Next Section
+← = Previous Section
+J = Toggle Judge Mode
+P = Print Portfolio
+H = Show this Help
+ESC = Close Help
+            `.trim();
+            showNotification(help);
+        }
+
+        // Smooth Scrolling for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const sectionIndex = sections.indexOf(targetId);
+                if (sectionIndex !== -1) {
+                    currentSection = sectionIndex;
+                    scrollToSection(targetId);
+                } else {
+                    const target = document.querySelector('#' + targetId);
+                    if (target) {
+                        const targetTop = target.offsetTop - headerHeight;
+                        window.scrollTo({
+                            top: targetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Growth Chart (loads when Chart.js is ready)
+        window.addEventListener('load', () => {
+            const ctx = document.getElementById('growthChart');
+            if (ctx && typeof Chart !== 'undefined') {
+                new Chart(ctx.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['Start', 'Month 1', 'Month 2', 'Month 3', 'Month 4', 'Current'],
+                        datasets: [{
+                            label: 'Team Members',
+                            data: [7, 9, 12, 16, 19, 22],
+                            borderColor: '#0EA5E9',
+                            backgroundColor: 'rgba(14, 165, 233, 0.1)',
+                            tension: 0.4,
+                            fill: true,
+                            borderWidth: 3
+                        }, {
+                            label: 'Funding ($)',
+                            data: [0, 450, 980, 1520, 1950, 2308],
+                            borderColor: '#22D3EE',
+                            backgroundColor: 'rgba(34, 211, 238, 0.1)',
+                            tension: 0.4,
+                            fill: true,
+                            borderWidth: 3
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    font: {
+                                        size: 14,
+                                        family: "'Inter', sans-serif",
+                                        weight: 600
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                                titleFont: {
+                                    size: 14,
+                                    family: "'Inter', sans-serif",
+                                    weight: 700
+                                },
+                                bodyFont: {
+                                    size: 13,
+                                    family: "'Inter', sans-serif"
+                                },
+                                padding: 12,
+                                cornerRadius: 8
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: 'rgba(148, 163, 184, 0.1)'
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 12,
+                                        family: "'Inter', sans-serif"
+                                    }
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    color: 'rgba(148, 163, 184, 0.1)'
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 12,
+                                        family: "'Inter', sans-serif"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+        // Add entrance animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.card, .stat-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Welcome message and instructions on page load
+        window.addEventListener('load', () => {
+            // Show welcome notification after a brief delay
+            setTimeout(() => {
+                showNotification('👋 Welcome to Polaris 26382! Press H for keyboard shortcuts.');
+            }, 1000);
+            
+            // Update section indicator
+            updateSectionIndicator();
+        });
+
+        // Track current section as user scrolls
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                // Detect which section is currently in view
+                const scrollPosition = window.scrollY + headerHeight + 100;
+                
+                for (let i = sections.length - 1; i >= 0; i--) {
+                    const section = document.getElementById(sections[i]);
+                    if (section && section.offsetTop <= scrollPosition) {
+                        currentSection = i;
+                        updateSectionIndicator();
+                        break;
+                    }
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>
