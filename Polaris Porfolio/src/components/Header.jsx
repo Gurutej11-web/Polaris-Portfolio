@@ -20,7 +20,7 @@ const Header = ({ judgeMode, setJudgeMode }) => {
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 rounded-lg overflow-hidden border border-white/40 bg-white/80">
               <img
-                src="/team/DSC_1080.JPG"
+                src="/team/DSC_0989.JPG"
                 alt="Polaris robot"
                 className="w-full h-full object-cover"
               />

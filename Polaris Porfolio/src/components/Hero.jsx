@@ -67,7 +67,7 @@ const Hero = () => {
               {/* Robot Photo */}
               <div className="relative aspect-square bg-gradient-to-br from-sky-500/20 to-cyan-400/20 rounded-2xl p-4 overflow-hidden">
                 <img
-                  src="/team/DSC_1080.JPG"
+                  src="/team/DSC_0989.JPG"
                   alt="Polaris robot"
                   loading="lazy"
                   className="w-full h-full object-cover rounded-xl"
