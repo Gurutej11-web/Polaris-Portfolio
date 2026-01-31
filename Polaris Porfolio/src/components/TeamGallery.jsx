@@ -72,6 +72,16 @@ const TeamGallery = () => {
     '/team/unnamed.png',
   ];
 
+  const teamPortraits = [
+    '/team/people/IMG_3077.jpeg',
+    '/team/people/IMG_3080.jpeg',
+    '/team/people/IMG_4599.jpeg',
+    '/team/people/rn_image_picker_lib_temp_357dc991-3be8-4333-a92a-fbd67dada228.jpeg',
+    '/team/people/rn_image_picker_lib_temp_bf325f78-b64a-4a0f-ae4d-cd0ed048369f.jpeg',
+    '/team/people/unnamed-1.jpg',
+    '/team/people/unnamed.jpg',
+  ];
+
   return (
     <section id="team" className="py-20 px-6">
       <div className="container mx-auto">
@@ -181,6 +191,23 @@ const TeamGallery = () => {
                   alt="Team moment"
                   loading="lazy"
                   className="h-40 w-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Team Portraits */}
+        <div className="glass-card p-8 mt-10">
+          <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">Team Portraits</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {teamPortraits.map((src, index) => (
+              <div key={index} className="overflow-hidden rounded-xl border border-white/60 bg-white/40">
+                <img
+                  src={src}
+                  alt="Team portrait"
+                  loading="lazy"
+                  className="h-48 w-full object-cover transition-transform duration-300 hover:scale-105"
                 />
               </div>
             ))}
