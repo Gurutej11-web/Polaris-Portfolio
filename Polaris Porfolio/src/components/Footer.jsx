@@ -134,6 +134,12 @@ const Footer = () => {
               </span>
               <span>Built with React + Vite</span>
               <span>Hosted on Firebase</span>
+              <button
+                onClick={() => document.getElementById('hero').scrollIntoView({ behavior: 'smooth' })}
+                className="text-slate-400 hover:text-white transition-colors"
+              >
+                Back to top
+              </button>
             </div>
           </div>
         </div>
