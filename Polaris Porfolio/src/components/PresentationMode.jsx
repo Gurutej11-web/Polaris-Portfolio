@@ -26,8 +26,8 @@ const slides = [
         { label: 'Software', value: 84 },
       ],
     },
-    image: '/team/DSC_1080.JPG',
-    imageAlt: 'Team Polaris robot on the field under competition lighting',
+    image: '/team/DSC_1126.JPG',
+    imageAlt: 'Team Polaris group photo at an event',
   },
   {
     title: 'Our Mission',
@@ -53,8 +53,8 @@ const slides = [
         { label: 'Iteration', value: 85 },
       ],
     },
-    image: '/team/DSC_1126.JPG',
-    imageAlt: 'Team members presenting the robot at a community event',
+    image: '/team/DSC_1096.JPG',
+    imageAlt: 'Team members presenting robotics to students',
   },
   {
     title: 'Robot Overview',
@@ -80,8 +80,8 @@ const slides = [
         { label: 'Launcher', value: 88 },
       ],
     },
-    image: '/team/DSC_0989.JPG',
-    imageAlt: 'Full robot overview showing intake, launcher, and drive base',
+    image: '/team/DSC_1080.JPG',
+    imageAlt: 'Team gathered around the robot during a demo',
   },
   {
     title: 'Drive System',
@@ -107,8 +107,8 @@ const slides = [
         { label: 'Stability', value: 89 },
       ],
     },
-    image: '/team/DSC_0983.JPG',
-    imageAlt: 'Close-up of the mecanum drivetrain and chassis',
+    image: '/team/IMG_4599.jpeg',
+    imageAlt: 'Team members driving and spotting the robot',
   },
   {
     title: 'Intake Advantage',
@@ -134,8 +134,8 @@ const slides = [
         { label: 'Consistency', value: 86 },
       ],
     },
-    image: '/team/DSC_1095.JPG',
-    imageAlt: 'Intake subsystem with angled rollers and guide plates',
+    image: '/team/DSC_1067.JPG',
+    imageAlt: 'Team operating the robot during testing',
   },
   {
     title: 'Launcher Tracking',
@@ -161,8 +161,8 @@ const slides = [
         { label: 'Stability', value: 88 },
       ],
     },
-    image: '/team/IMG_3072.jpeg',
-    imageAlt: 'Launcher mechanism aligned for consistent shot release',
+    image: '/team/DSC_1066.JPG',
+    imageAlt: 'Team monitoring launches during a field run',
   },
   {
     title: 'Autonomous Paths',
@@ -188,8 +188,8 @@ const slides = [
         { label: 'Scoring', value: 84 },
       ],
     },
-    image: '/team/DSC_1066.JPG',
-    imageAlt: 'Robot following a marked autonomous path',
+    image: '/team/DSC_1094.JPG',
+    imageAlt: 'Team reviewing autonomous routes together',
   },
   {
     title: 'Robot Capability',
@@ -215,8 +215,8 @@ const slides = [
         { label: 'Reliability', value: 90 },
       ],
     },
-    image: '/team/DSC_1067.JPG',
-    imageAlt: 'Robot in action demonstrating full-system capability',
+    image: '/team/DSC_0989.JPG',
+    imageAlt: 'Team showing the robot’s full system to judges',
   },
   {
     title: 'Iteration Progress',
@@ -243,8 +243,8 @@ const slides = [
         { label: 'Iter 4', value: 88 },
       ],
     },
-    image: '/team/DSC_1094.JPG',
-    imageAlt: 'Iteration photo showing updates across builds',
+    image: '/team/DSC_1129.JPG',
+    imageAlt: 'Team comparing iterations and parts on the workbench',
   },
   {
     title: 'Control Software',
@@ -270,8 +270,8 @@ const slides = [
         { label: 'Stability', value: 90 },
       ],
     },
-    image: '/team/IMG_2965.jpg',
-    imageAlt: 'Laptop running robot control dashboards and tuning graphs',
+    image: '/team/DSC_1095.JPG',
+    imageAlt: 'Software team reviewing telemetry together',
   },
   {
     title: 'Sensor Fusion',
@@ -297,8 +297,8 @@ const slides = [
         { label: 'Velocity', value: 86 },
       ],
     },
-    image: '/team/IMG_2935.jpeg',
-    imageAlt: 'Sensor and electronics layout for fusion and navigation',
+    image: '/team/DSC_1150.JPG',
+    imageAlt: 'Team calibrating sensors before a test run',
   },
   {
     title: 'CAD + Design Dumps',
@@ -324,8 +324,8 @@ const slides = [
         { label: 'BOM accuracy', value: 86 },
       ],
     },
-    image: '/team/FC74BD7E-ADA0-4F2E-80FC-D6A7BD848C0C.png',
-    imageAlt: 'CAD rendering highlighting the full robot assembly',
+    image: '/team/DSC_1080.JPG',
+    imageAlt: 'Design review with the full team present',
   },
   {
     title: 'Community Impact',
@@ -351,8 +351,8 @@ const slides = [
         { label: 'Growth', value: 86 },
       ],
     },
-    image: '/team/DSC_1096.JPG',
-    imageAlt: 'Students interacting with the robot at an outreach event',
+    image: '/team/DSC_1126.JPG',
+    imageAlt: 'Team leading a community demo with students',
   },
   {
     title: 'Sustainability',
@@ -378,8 +378,8 @@ const slides = [
         { label: 'Optimize', value: 78 },
       ],
     },
-    image: '/team/DSC_1150.JPG',
-    imageAlt: 'Workshop scene showing reused components and tools',
+    image: '/team/DSC_1094.JPG',
+    imageAlt: 'Team sorting reusable parts and tools together',
   },
   {
     title: 'Team Structure',
@@ -405,8 +405,8 @@ const slides = [
         { label: 'Ops', value: 78 },
       ],
     },
-    image: '/team/people/IMG_3077.jpeg',
-    imageAlt: 'Team portrait of subteam leads',
+    image: '/team/DSC_1126.JPG',
+    imageAlt: 'Full team structure photo',
   },
   {
     title: 'Team Highlights',
@@ -432,8 +432,8 @@ const slides = [
         { label: 'Testing', value: 82 },
       ],
     },
-    image: '/team/people/IMG_3080.jpeg',
-    imageAlt: 'Team members collaborating during build season',
+    image: '/team/DSC_1096.JPG',
+    imageAlt: 'Team celebrating progress together',
   },
   {
     title: 'Closing',
@@ -459,8 +459,62 @@ const slides = [
         { label: 'Follow-up', value: 78 },
       ],
     },
+    image: '/team/DSC_1080.JPG',
+    imageAlt: 'Team group photo closing the presentation',
+  },
+  {
+    title: 'Awards + Recognition',
+    subtitle: 'Highlights that validate our process',
+    kicker: 'Judge-Focused Impact',
+    detail: 'Recognition reflects consistent performance, documentation quality, and collaborative team culture.',
+    detail2: 'We track awards alongside match performance to ensure our engineering process is producing results.',
+    detail3: 'Feedback from judges is added to our improvement backlog after each event.',
+    humanNote: 'We treat every award as a responsibility to keep improving and mentoring others.',
+    callout: 'Key takeaway: Judges saw a clear connection between our process, data, and results.',
+    tags: ['Recognition', 'Process', 'Growth'],
+    stats: [
+      { label: 'Awards tracked', value: '4+' },
+      { label: 'Judge notes', value: '15+' },
+      { label: 'Improvements logged', value: '12' },
+    ],
+    accent: '#38BDF8',
+    chart: {
+      title: 'Recognition themes',
+      items: [
+        { label: 'Process', value: 86 },
+        { label: 'Impact', value: 82 },
+        { label: 'Teamwork', value: 88 },
+      ],
+    },
     image: '/team/DSC_1126.JPG',
-    imageAlt: 'Team photo closing the presentation',
+    imageAlt: 'Team group photo after an awards ceremony',
+  },
+  {
+    title: 'Safety + Quality',
+    subtitle: 'How we keep the build reliable',
+    kicker: 'Consistent Execution',
+    detail: 'Safety checklists, wiring standards, and inspection drills help us stay reliable under time pressure.',
+    detail2: 'Quality checks happen after every major change so issues are resolved early.',
+    detail3: 'We keep spares labeled, tested, and ready for quick swaps.',
+    humanNote: 'We want judges to see a team that is safe, organized, and match-ready at all times.',
+    callout: 'Key takeaway: Structured quality checks protect reliability on the field.',
+    tags: ['Safety', 'Quality', 'Reliability'],
+    stats: [
+      { label: 'Checklists', value: '6' },
+      { label: 'Inspections', value: '12' },
+      { label: 'Failures caught', value: 'Low' },
+    ],
+    accent: '#22D3EE',
+    chart: {
+      title: 'Quality coverage',
+      items: [
+        { label: 'Wiring', value: 90 },
+        { label: 'Fasteners', value: 88 },
+        { label: 'Testing', value: 85 },
+      ],
+    },
+    image: '/team/DSC_1094.JPG',
+    imageAlt: 'Team performing safety and inspection checks',
   },
 ];
 
@@ -512,7 +566,7 @@ const PresentationMode = ({ onClose }) => {
 
       <div className="container mx-auto h-full px-6 py-16 flex flex-col justify-center">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <div className="space-y-6">
+          <div className="space-y-4">
             {slide.kicker && (
               <span
                 className="inline-flex items-center rounded-full border px-3 py-1 text-xs uppercase tracking-[0.3em]"
@@ -526,13 +580,13 @@ const PresentationMode = ({ onClose }) => {
               <p className="text-lg text-slate-200">{slide.subtitle}</p>
             )}
             {slide.detail && (
-              <p className="text-base md:text-lg text-slate-200 leading-relaxed">{slide.detail}</p>
+              <p className="text-sm md:text-base text-slate-200 leading-relaxed">{slide.detail}</p>
             )}
             {slide.detail2 && (
-              <p className="text-sm md:text-base text-slate-300 leading-relaxed">{slide.detail2}</p>
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">{slide.detail2}</p>
             )}
             {slide.detail3 && (
-              <p className="text-sm md:text-base text-slate-300 leading-relaxed">{slide.detail3}</p>
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">{slide.detail3}</p>
             )}
             {slide.humanNote && (
               <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200">
@@ -554,7 +608,7 @@ const PresentationMode = ({ onClose }) => {
               </div>
             )}
             {slide.bullets && (
-              <ul className="space-y-3 text-lg text-slate-100">
+              <ul className="space-y-2 text-base text-slate-100">
                 {slide.bullets.map((bullet, bulletIndex) => (
                   <li key={bulletIndex} className="flex items-start space-x-3">
                     <span className="mt-1 h-2 w-2 rounded-full" style={{ backgroundColor: accent }}></span>
@@ -569,6 +623,12 @@ const PresentationMode = ({ onClose }) => {
                 style={{ borderColor: `${accent}55`, backgroundColor: `${accent}12` }}
               >
                 {slide.callout}
+              </div>
+            )}
+            {slide.humanNote && (
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-xs text-slate-200">
+                <span className="text-slate-400 uppercase tracking-wide text-[10px]">In our words</span>
+                <p className="mt-2 leading-relaxed">{slide.humanNote}</p>
               </div>
             )}
             {slide.stats && (
