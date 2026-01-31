@@ -8,6 +8,7 @@ const slides = [
     kicker: 'Season Snapshot',
     detail: 'A fast-paced season focused on reliable scoring, rapid iteration, and clear documentation for judges and partners.',
     detail2: 'We emphasize measurable performance gains, rapid feedback loops, and a presentation-friendly data trail for every major design choice.',
+    detail3: 'This deck highlights outcomes, evidence, and how each decision improved match consistency.',
     callout: 'Key takeaway: We engineered a consistent scoring robot backed by clear evidence and iteration data.',
     tags: ['Reliability', 'Iteration', 'Documentation'],
     stats: [
@@ -33,6 +34,7 @@ const slides = [
     kicker: 'Why We Compete',
     detail: 'We prioritize dependable performance, inclusive learning, and transparent engineering decisions that scale across seasons.',
     detail2: 'Our mission connects competition results with mentorship outcomes, ensuring technical growth and community impact move together.',
+    detail3: 'We measure success with both match data and student engagement milestones.',
     callout: 'Key takeaway: Our decisions balance competitive performance with community impact and student growth.',
     tags: ['Reliability', 'Community', 'Learning'],
     stats: [
@@ -58,6 +60,7 @@ const slides = [
     kicker: 'System Architecture',
     detail: 'A compact, modular frame with fast swap assemblies for drive, intake, and launcher tuning between matches.',
     detail2: 'Subsystem access panels and standardized mounts reduce pit turnaround and simplify inspection readiness.',
+    detail3: 'Each module is tested independently before full-system validation.',
     callout: 'Key takeaway: Modular assemblies reduce pit time and keep performance consistent across matches.',
     tags: ['Modular design', 'Serviceability', 'Consistency'],
     stats: [
@@ -83,6 +86,7 @@ const slides = [
     kicker: 'Mobility Advantage',
     detail: 'Mecanum kinematics allow precision strafing, reducing cycle time and simplifying alignment on the hub.',
     detail2: 'Driver practice plus tuned motion profiles keep control predictable under defense and tight field conditions.',
+    detail3: 'Acceleration limits protect components while keeping cycles fast.',
     callout: 'Key takeaway: Precise lateral control cuts alignment time and boosts scoring cycles.',
     tags: ['Agility', 'Control', 'Stability'],
     stats: [
@@ -108,6 +112,7 @@ const slides = [
     kicker: 'Acquisition Speed',
     detail: 'The intake geometry captures off-axis pieces and funnels them into a consistent launch alignment.',
     detail2: 'Compliance points reduce bounce-outs while guiding samples into a fixed handoff location.',
+    detail3: 'Quick-clearing access makes recovery simple during matches.',
     callout: 'Key takeaway: Off-angle capture keeps cycles fast even under defense.',
     tags: ['Capture rate', 'Alignment', 'Consistency'],
     stats: [
@@ -133,6 +138,7 @@ const slides = [
     kicker: 'Scoring Precision',
     detail: 'A tunable chain-belt path stabilizes release while software compensation fine-tunes angle and speed.',
     detail2: 'Repeatable release geometry lets drivers focus on positioning while software trims the final aim.',
+    detail3: 'Tuning presets allow rapid adjustments by field zone.',
     callout: 'Key takeaway: Stable release points reduce driver correction and improve accuracy.',
     tags: ['Accuracy', 'Stability', 'Tunable'],
     stats: [
@@ -158,6 +164,7 @@ const slides = [
     kicker: 'Auto Consistency',
     detail: 'Auto routines prioritize predictable early scoring with fallback routes for defensive disruption.',
     detail2: 'Path options are chosen by starting position, minimizing collisions and maximizing early points.',
+    detail3: 'We validate autos weekly with timing and scoring benchmarks.',
     callout: 'Key takeaway: Multiple autos give us flexible scoring options per match strategy.',
     tags: ['Consistency', 'Resilience', 'Scoring'],
     stats: [
@@ -183,6 +190,7 @@ const slides = [
     kicker: 'Match Readiness',
     detail: 'Our full-system tuning balances cycle speed with repeatable accuracy during extended match play.',
     detail2: 'Stress tests across multiple matches validate durability and prevent performance drop-off late in events.',
+    detail3: 'Performance holds steady across back-to-back matches.',
     callout: 'Key takeaway: Balanced performance keeps cycle times low without sacrificing accuracy.',
     tags: ['Speed', 'Accuracy', 'Reliability'],
     stats: [
@@ -208,6 +216,7 @@ const slides = [
     kicker: 'Design Evolution',
     detail: 'Each iteration delivered measurable score gains through targeted changes to intake alignment and launch tuning.',
     detail2: 'We track changes by subsystem, then validate with scrimmage data before moving to the next iteration.',
+    detail3: 'Regression checks ensure improvements never reduce reliability.',
     callout: 'Key takeaway: Fast feedback loops drove a +38% scoring improvement.',
     tags: ['Iteration', 'Testing', 'Results'],
     stats: [
@@ -234,6 +243,7 @@ const slides = [
     kicker: 'Software Reliability',
     detail: 'A structured tuning process includes step-response tests and in-match validation on field.',
     detail2: 'Telemetry overlays and logs help us identify drift, latency, and response delays quickly.',
+    detail3: 'Driver assists reduce workload without removing manual control.',
     callout: 'Key takeaway: Consistent control loops reduce overshoot and stabilize shots.',
     tags: ['PID tuning', 'Stability', 'Telemetry'],
     stats: [
@@ -259,6 +269,7 @@ const slides = [
     kicker: 'Navigation Accuracy',
     detail: 'IMU + encoder fusion provides smooth pose updates and reduces drift during fast maneuvers.',
     detail2: 'We calibrate sensors pre-match to improve repeatability and reduce the need for manual correction.',
+    detail3: 'Filtering reduces noise during rapid direction changes.',
     callout: 'Key takeaway: Reliable pose estimates keep autos repeatable and predictable.',
     tags: ['Pose tracking', 'IMU', 'Encoders'],
     stats: [
@@ -284,6 +295,7 @@ const slides = [
     kicker: 'Documentation System',
     detail: 'All major choices are documented with lightweight trade studies to support fast, repeatable decisions.',
     detail2: 'Design dumps include tests, failure notes, and decisions so future teams can pick up quickly.',
+    detail3: 'Documentation aligns with build checkpoints for easy review.',
     callout: 'Key takeaway: Clear documentation speeds onboarding and future season improvements.',
     tags: ['CAD', 'Trade studies', 'Build notes'],
     stats: [
@@ -309,6 +321,7 @@ const slides = [
     kicker: 'STEM Outreach',
     detail: 'We lead demos, workshops, and mentorship sessions to grow interest in robotics and STEM.',
     detail2: 'Hands-on demos help younger students connect engineering concepts to real robots and teamwork.',
+    detail3: 'We collect feedback to improve each outreach session.',
     callout: 'Key takeaway: Outreach strengthens our community partnerships and inspires future teams.',
     tags: ['Workshops', 'Mentorship', 'Community'],
     stats: [
@@ -334,6 +347,7 @@ const slides = [
     kicker: 'Responsible Engineering',
     detail: 'We prioritize part reuse and modular repairs to extend component life and reduce waste.',
     detail2: 'Reclaimed parts are tagged and tested, keeping costs low without sacrificing performance.',
+    detail3: 'Spare inventory is reviewed monthly to reduce overbuying.',
     callout: 'Key takeaway: Reuse-first design saves budget while reducing environmental impact.',
     tags: ['Reuse', 'Repair', 'Efficiency'],
     stats: [
@@ -359,6 +373,7 @@ const slides = [
     kicker: 'Team Operations',
     detail: 'Leads coordinate across pods with weekly syncs and shared sprint goals.',
     detail2: 'We use shared checklists and review gates to keep each subteam aligned and accountable.',
+    detail3: 'Roles are documented so new members can onboard quickly.',
     callout: 'Key takeaway: Clear roles and cadence keep build, code, and ops aligned.',
     tags: ['Leadership', 'Cadence', 'Cross-team'],
     stats: [
@@ -384,6 +399,7 @@ const slides = [
     kicker: 'Season Output',
     detail: 'Rapid prototyping and disciplined reviews helped us deliver a stable, repeatable robot.',
     detail2: 'Our review cadence keeps improvements measurable and reduces last-minute surprises at events.',
+    detail3: 'Testing notes connect code changes directly to match results.',
     callout: 'Key takeaway: Strong output across build, code, and testing drove performance gains.',
     tags: ['Build hours', 'Codebase', 'Testing'],
     stats: [
@@ -409,6 +425,7 @@ const slides = [
     kicker: 'Ready for Questions',
     detail: 'We welcome questions and feedback on our engineering choices, documentation, and outreach work.',
     detail2: 'We can walk through decision trade-offs, test data, and reliability results on request.',
+    detail3: 'We are ready to share CAD, code, and testing artifacts as needed.',
     callout: 'Key takeaway: We are prepared to discuss decisions, data, and results in detail.',
     tags: ['Questions', 'Feedback', 'Follow-up'],
     stats: [
@@ -496,6 +513,9 @@ const PresentationMode = ({ onClose }) => {
             )}
             {slide.detail2 && (
               <p className="text-sm md:text-base text-slate-300 leading-relaxed">{slide.detail2}</p>
+            )}
+            {slide.detail3 && (
+              <p className="text-sm md:text-base text-slate-300 leading-relaxed">{slide.detail3}</p>
             )}
             {slide.tags && (
               <div className="flex flex-wrap gap-2">
