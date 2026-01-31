@@ -212,7 +212,7 @@ const ImpactSustainability = () => {
                 </div>
                 <h4 className="font-bold text-slate-900">Year 2: Growth (2026-2027)</h4>
                 <ul className="mt-2 space-y-1 text-sm text-slate-700">
-                  <li>• Junior members lead subsystem design</li>
+                  <li>• Junior members contribute to subsystem design</li>
                   <li>• Expand outreach to 10+ schools</li>
                   <li>• Increase parts reuse to 75%</li>
                   <li>• Start alumni network for continued mentorship</li>
@@ -223,7 +223,7 @@ const ImpactSustainability = () => {
                 <div className="absolute -left-3 top-0 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
                   <span className="text-white font-bold text-xs">3</span>
                 </div>
-                <h4 className="font-bold text-slate-900">Year 3: Leadership (2027-2028)</h4>
+                <h4 className="font-bold text-slate-900">Year 3: Expansion (2027-2028)</h4>
                 <ul className="mt-2 space-y-1 text-sm text-slate-700">
                   <li>• Student-led training workshops</li>
                   <li>• Seed funding for new FTC teams</li>

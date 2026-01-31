@@ -3,10 +3,10 @@ import { Users, Wrench, Code, Lightbulb } from 'lucide-react';
 
 const TeamGallery = () => {
   const teamMembers = [
-    { role: 'Captain', icon: '👑', name: 'Leadership & Strategy', color: 'sky' },
-    { role: 'Mechanical Lead', icon: '⚙️', name: 'Design & Fabrication', color: 'cyan' },
-    { role: 'Software Lead', icon: '💻', name: 'Programming & AI', color: 'blue' },
-    { role: 'Outreach Lead', icon: '🤝', name: 'Community Impact', color: 'green' },
+    { role: 'Strategy', icon: '👑', name: 'Planning & Coordination', color: 'sky' },
+    { role: 'Mechanical', icon: '⚙️', name: 'Design & Fabrication', color: 'cyan' },
+    { role: 'Software', icon: '💻', name: 'Programming & AI', color: 'blue' },
+    { role: 'Outreach', icon: '🤝', name: 'Community Impact', color: 'green' },
   ];
 
   return (

@@ -116,9 +116,12 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-slate-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-slate-400">
-              © 2025-2026 Polaris 23682. All rights reserved.
-            </p>
+            <div className="text-center md:text-left">
+              <p className="text-sm text-slate-400">
+                © 2025-2026 Polaris 23682. All rights reserved.
+              </p>
+              <p className="text-xs text-slate-500 mt-1">Made by Gurutej Bandla</p>
+            </div>
             <div className="flex items-center space-x-6 text-sm text-slate-400">
               <span className="flex items-center space-x-2">
                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
