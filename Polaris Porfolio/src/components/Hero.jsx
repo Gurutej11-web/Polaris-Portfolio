@@ -122,6 +122,19 @@ const Hero = () => {
                 </div>
               </div>
             </div>
+
+            {/* Team Action Photo */}
+            <div className="glass-card p-4 mt-6">
+              <img
+                src="/team/DSC_1126.JPG"
+                alt="Team working at competition"
+                loading="lazy"
+                className="w-full h-48 object-cover rounded-xl"
+              />
+              <p className="text-xs text-slate-600 mt-2 text-center">
+                Team in action at a meet
+              </p>
+            </div>
           </div>
         </div>
 

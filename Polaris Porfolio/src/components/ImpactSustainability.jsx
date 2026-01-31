@@ -242,6 +242,27 @@ const ImpactSustainability = () => {
           </div>
         </div>
 
+        {/* Outreach Gallery */}
+        <div className="glass-card p-8 mb-8">
+          <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">Community Outreach</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              '/team/DSC_1096.JPG',
+              '/team/DSC_1129.JPG',
+              '/team/DSC_1150.JPG',
+            ].map((src, index) => (
+              <div key={index} className="overflow-hidden rounded-xl border border-white/60 bg-white/40">
+                <img
+                  src={src}
+                  alt="Outreach event"
+                  loading="lazy"
+                  className="h-40 w-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Environmental Impact */}
         <div className="glass-card p-8">
           <div className="flex items-center space-x-3 mb-6">

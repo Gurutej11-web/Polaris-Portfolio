@@ -187,6 +187,27 @@ const StrategicAnalysis = ({ judgeMode }) => {
             </div>
           </div>
         </div>
+
+        {/* Strategy Gallery */}
+        <div className="glass-card p-8 mt-8">
+          <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">Strategy Moments</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              '/team/DSC_1066.JPG',
+              '/team/DSC_1067.JPG',
+              '/team/DSC_1094.JPG',
+            ].map((src, index) => (
+              <div key={index} className="overflow-hidden rounded-xl border border-white/60 bg-white/40">
+                <img
+                  src={src}
+                  alt="Team strategy session"
+                  loading="lazy"
+                  className="h-40 w-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

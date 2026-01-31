@@ -202,6 +202,28 @@ const MechanicalSystems = ({ judgeMode }) => {
           </div>
         </div>
 
+        {/* Build Highlights */}
+        <div className="glass-card p-8 mb-8">
+          <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">Build Highlights</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              '/team/DSC_0983.JPG',
+              '/team/DSC_0989.JPG',
+              '/team/DSC_1080.JPG',
+              '/team/DSC_1095.JPG',
+            ].map((src, index) => (
+              <div key={index} className="overflow-hidden rounded-xl border border-white/60 bg-white/40">
+                <img
+                  src={src}
+                  alt="Build session"
+                  loading="lazy"
+                  className="h-36 w-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* System Integration Summary */}
         <div className="glass-card p-8">
           <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">System Integration</h3>
