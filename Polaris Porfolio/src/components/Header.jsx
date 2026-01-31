@@ -44,6 +44,9 @@ const Header = ({ judgeMode, setJudgeMode }) => {
             <button onClick={() => scrollToSection('impact')} className="text-slate-700 hover:text-sky-500 transition-colors font-medium">
               Impact
             </button>
+            <button onClick={() => scrollToSection('team')} className="text-slate-700 hover:text-sky-500 transition-colors font-medium">
+              Team
+            </button>
             
             {/* Judge Mode Toggle */}
             <button
@@ -85,6 +88,9 @@ const Header = ({ judgeMode, setJudgeMode }) => {
             </button>
             <button onClick={() => scrollToSection('impact')} className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-white/50 rounded-lg transition-colors">
               Impact
+            </button>
+            <button onClick={() => scrollToSection('team')} className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-white/50 rounded-lg transition-colors">
+              Team
             </button>
             <button
               onClick={() => setJudgeMode(!judgeMode)}

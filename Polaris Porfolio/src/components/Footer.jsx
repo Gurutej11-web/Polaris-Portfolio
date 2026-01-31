@@ -51,6 +51,11 @@ const Footer = () => {
                   Impact
                 </button>
               </li>
+              <li>
+                <button onClick={() => document.getElementById('team').scrollIntoView({ behavior: 'smooth' })} className="text-slate-400 hover:text-white transition-colors">
+                  Team
+                </button>
+              </li>
             </ul>
           </div>
 

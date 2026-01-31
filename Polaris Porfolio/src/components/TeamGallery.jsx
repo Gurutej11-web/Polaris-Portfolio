@@ -3,14 +3,56 @@ import { Users, Wrench, Code, Lightbulb } from 'lucide-react';
 
 const TeamGallery = () => {
   const teamMembers = [
-    { role: 'Strategy', icon: '👑', name: 'Planning & Coordination', color: 'sky' },
-    { role: 'Mechanical', icon: '⚙️', name: 'Design & Fabrication', color: 'cyan' },
-    { role: 'Software', icon: '💻', name: 'Programming & AI', color: 'blue' },
-    { role: 'Outreach', icon: '🤝', name: 'Community Impact', color: 'green' },
+    { role: 'Strategy', icon: '👑', name: 'Planning & Coordination', iconClass: 'bg-sky-500/20' },
+    { role: 'Mechanical', icon: '⚙️', name: 'Design & Fabrication', iconClass: 'bg-cyan-400/20' },
+    { role: 'Software', icon: '💻', name: 'Programming & AI', iconClass: 'bg-blue-500/20' },
+    { role: 'Outreach', icon: '🤝', name: 'Community Impact', iconClass: 'bg-green-500/20' },
+  ];
+
+  const teamRoster = [
+    {
+      title: '⚙️ Mechanical Team',
+      titleClass: 'text-sky-600',
+      members: [
+        { name: 'Sreehan', role: 'Mechanical Engineer' },
+        { name: 'Bhoumik', role: 'Mechanical Engineer' },
+        { name: 'Srivatsa', role: 'Mechanical Engineer' },
+        { name: 'Lalith', role: 'Mechanical Engineer' },
+      ],
+      summary: 'Responsible for robot construction, hex-based frame design, drivetrain assembly, and mechanical system integration.'
+    },
+    {
+      title: '💻 Coding Team',
+      titleClass: 'text-cyan-500',
+      members: [
+        { name: 'Gurutej', role: 'Software Developer' },
+        { name: 'Advik', role: 'Software Developer' },
+        { name: 'Pranav', role: 'Software Developer' },
+      ],
+      summary: 'Develops autonomous routines, TeleOp controls, and sensor integration in Java. Achieved 64% autonomous success rate with 30 points per run.'
+    },
+    {
+      title: '🎨 Design Team',
+      titleClass: 'text-sky-600',
+      members: [
+        { name: 'Landon', role: 'Designer' },
+        { name: 'Vince', role: 'Designer' },
+      ],
+      summary: 'CAD modeling, engineering notebook design, branding, and visual communications. Creates the professional image of Team Polaris.'
+    },
+    {
+      title: '📊 Management & Communications',
+      titleClass: 'text-cyan-500',
+      members: [
+        { name: 'Seshank', role: 'Communications' },
+        { name: 'Gurutej', role: 'Operations' },
+      ],
+      summary: 'Coordinates team operations, fundraising ($2,308 raised), community outreach (430+ volunteer hours), and competition strategy.'
+    },
   ];
 
   return (
-    <section className="py-20 px-6">
+    <section id="team" className="py-20 px-6">
       <div className="container mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -31,7 +73,7 @@ const TeamGallery = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {teamMembers.map((member, index) => (
             <div key={index} className="glass-card p-6 text-center hover:scale-105 transition-transform duration-300">
-              <div className={`w-20 h-20 bg-${member.color}-500/20 rounded-full flex items-center justify-center mx-auto mb-4`}>
+              <div className={`w-20 h-20 ${member.iconClass} rounded-full flex items-center justify-center mx-auto mb-4`}>
                 <span className="text-4xl">{member.icon}</span>
               </div>
               <h3 className="font-bold text-slate-900 mb-2">{member.role}</h3>
@@ -104,6 +146,30 @@ const TeamGallery = () => {
           <div className="glass-card p-6 text-center">
             <p className="text-3xl font-bold text-cyan-500">12K+</p>
             <p className="text-sm text-slate-600 mt-1">Lines of Code</p>
+          </div>
+        </div>
+
+        {/* Full Team Roster */}
+        <div className="glass-card p-8 mt-10">
+          <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">Team Structure & Specializations</h3>
+          <div className="grid lg:grid-cols-2 gap-6">
+            {teamRoster.map((group, index) => (
+              <div key={index} className="glass-card p-6">
+                <h4 className={`text-lg font-bold ${group.titleClass} mb-4`}>{group.title}</h4>
+                <ul className="space-y-2 text-sm text-slate-700">
+                  {group.members.map((member, memberIndex) => (
+                    <li
+                      key={memberIndex}
+                      className="flex items-center justify-between border-b border-slate-200/60 pb-2"
+                    >
+                      <span className="font-semibold text-slate-900">{member.name}</span>
+                      <span className="text-slate-600">{member.role}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-xs text-slate-600 mt-4 italic">{group.summary}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
