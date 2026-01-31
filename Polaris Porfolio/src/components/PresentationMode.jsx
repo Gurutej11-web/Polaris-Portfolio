@@ -5,12 +5,16 @@ const slides = [
   {
     title: 'Polaris 23682 · DEcode',
     subtitle: '2025–2026 Engineering Portfolio',
+    kicker: 'Season Snapshot',
     detail: 'A fast-paced season focused on reliable scoring, rapid iteration, and clear documentation for judges and partners.',
+    callout: 'Key takeaway: We engineered a consistent scoring robot backed by clear evidence and iteration data.',
+    tags: ['Reliability', 'Iteration', 'Documentation'],
     stats: [
       { label: 'Season timeline', value: 'Aug–Feb' },
       { label: 'Build cadence', value: 'Weekly sprints' },
       { label: 'Review cycles', value: 'Bi-weekly' },
     ],
+    accent: '#22D3EE',
     chart: {
       title: 'Portfolio readiness',
       items: [
@@ -25,12 +29,16 @@ const slides = [
   {
     title: 'Our Mission',
     bullets: ['Build smart, reliable robots', 'Share STEM with our community', 'Iterate fast, learn faster'],
+    kicker: 'Why We Compete',
     detail: 'We prioritize dependable performance, inclusive learning, and transparent engineering decisions that scale across seasons.',
+    callout: 'Key takeaway: Our decisions balance competitive performance with community impact and student growth.',
+    tags: ['Reliability', 'Community', 'Learning'],
     stats: [
       { label: 'Core pillars', value: '3' },
       { label: 'Mentor hours', value: '120+' },
       { label: 'Team values', value: 'Curious, bold, kind' },
     ],
+    accent: '#38BDF8',
     chart: {
       title: 'Focus distribution',
       items: [
@@ -45,12 +53,16 @@ const slides = [
   {
     title: 'Robot Overview',
     bullets: ['Mecanum drive base', 'Belt-chain launcher', 'Variable geometry intake'],
+    kicker: 'System Architecture',
     detail: 'A compact, modular frame with fast swap assemblies for drive, intake, and launcher tuning between matches.',
+    callout: 'Key takeaway: Modular assemblies reduce pit time and keep performance consistent across matches.',
+    tags: ['Modular design', 'Serviceability', 'Consistency'],
     stats: [
       { label: 'Subsystems', value: '3' },
       { label: 'Service time', value: '<10 min' },
       { label: 'Modularity', value: 'High' },
     ],
+    accent: '#34D399',
     chart: {
       title: 'Subsystem maturity',
       items: [
@@ -65,12 +77,16 @@ const slides = [
   {
     title: 'Drive System',
     bullets: ['Holonomic control', 'Fast alignment', 'Stable under load'],
+    kicker: 'Mobility Advantage',
     detail: 'Mecanum kinematics allow precision strafing, reducing cycle time and simplifying alignment on the hub.',
+    callout: 'Key takeaway: Precise lateral control cuts alignment time and boosts scoring cycles.',
+    tags: ['Agility', 'Control', 'Stability'],
     stats: [
       { label: 'Top speed', value: '4.8 m/s' },
       { label: 'Accel time', value: '0.9 s' },
       { label: 'Drivetrain mass', value: '18%' },
     ],
+    accent: '#A78BFA',
     chart: {
       title: 'Drive performance',
       items: [
@@ -85,12 +101,16 @@ const slides = [
   {
     title: 'Intake Advantage',
     bullets: ['Angular motion for alignment', 'Fast sample acquisition', 'Repeatable feed angle'],
+    kicker: 'Acquisition Speed',
     detail: 'The intake geometry captures off-axis pieces and funnels them into a consistent launch alignment.',
+    callout: 'Key takeaway: Off-angle capture keeps cycles fast even under defense.',
+    tags: ['Capture rate', 'Alignment', 'Consistency'],
     stats: [
       { label: 'Pickup time', value: '0.7 s' },
       { label: 'Feed repeatability', value: '±2°' },
       { label: 'Throughput', value: 'High' },
     ],
+    accent: '#F59E0B',
     chart: {
       title: 'Intake metrics',
       items: [
@@ -105,12 +125,16 @@ const slides = [
   {
     title: 'Launcher Tracking',
     bullets: ['Belt-chain trajectory control', 'Consistent release points', 'Lower driver correction'],
+    kicker: 'Scoring Precision',
     detail: 'A tunable chain-belt path stabilizes release while software compensation fine-tunes angle and speed.',
+    callout: 'Key takeaway: Stable release points reduce driver correction and improve accuracy.',
+    tags: ['Accuracy', 'Stability', 'Tunable'],
     stats: [
       { label: 'Release variance', value: '±3%' },
       { label: 'Spin-up time', value: '0.5 s' },
       { label: 'Shot repeat', value: 'High' },
     ],
+    accent: '#F472B6',
     chart: {
       title: 'Launch quality',
       items: [
@@ -125,12 +149,16 @@ const slides = [
   {
     title: 'Autonomous Paths',
     bullets: ['Reliable start-to-score routes', 'Smooth field traversal', 'Optimized scoring windows'],
+    kicker: 'Auto Consistency',
     detail: 'Auto routines prioritize predictable early scoring with fallback routes for defensive disruption.',
+    callout: 'Key takeaway: Multiple autos give us flexible scoring options per match strategy.',
+    tags: ['Consistency', 'Resilience', 'Scoring'],
     stats: [
       { label: 'Path library', value: '7' },
       { label: 'Avg success', value: '82%' },
       { label: 'Tuning runs', value: '45' },
     ],
+    accent: '#60A5FA',
     chart: {
       title: 'Auto performance',
       items: [
@@ -145,12 +173,16 @@ const slides = [
   {
     title: 'Robot Capability',
     bullets: ['Speed, accuracy, reliability', 'Intake efficiency focus', 'Auto consistency on current build'],
+    kicker: 'Match Readiness',
     detail: 'Our full-system tuning balances cycle speed with repeatable accuracy during extended match play.',
+    callout: 'Key takeaway: Balanced performance keeps cycle times low without sacrificing accuracy.',
+    tags: ['Speed', 'Accuracy', 'Reliability'],
     stats: [
       { label: 'Cycle time', value: '8–10 s' },
       { label: 'Match uptime', value: '96%' },
       { label: 'Accuracy', value: 'High' },
     ],
+    accent: '#22C55E',
     chart: {
       title: 'Capability blend',
       items: [
@@ -165,12 +197,16 @@ const slides = [
   {
     title: 'Iteration Progress',
     bullets: ['Iter 1: low scores', 'Iter 2: medium scores', 'Iter 3: near current', 'Iter 4: current performance'],
+    kicker: 'Design Evolution',
     detail: 'Each iteration delivered measurable score gains through targeted changes to intake alignment and launch tuning.',
+    callout: 'Key takeaway: Fast feedback loops drove a +38% scoring improvement.',
+    tags: ['Iteration', 'Testing', 'Results'],
     stats: [
       { label: 'Iterations', value: '4' },
       { label: 'Score gain', value: '+38%' },
       { label: 'Build changes', value: '12' },
     ],
+    accent: '#FB7185',
     chart: {
       title: 'Score trajectory',
       items: [
@@ -186,12 +222,16 @@ const slides = [
   {
     title: 'Control Software',
     bullets: ['Custom PID for angle control', 'Cleaner tuning curves', 'Stable tracking'],
+    kicker: 'Software Reliability',
     detail: 'A structured tuning process includes step-response tests and in-match validation on field.',
+    callout: 'Key takeaway: Consistent control loops reduce overshoot and stabilize shots.',
+    tags: ['PID tuning', 'Stability', 'Telemetry'],
     stats: [
       { label: 'Control loops', value: '5' },
       { label: 'Tuning sessions', value: '18' },
       { label: 'Latency', value: '<20 ms' },
     ],
+    accent: '#06B6D4',
     chart: {
       title: 'Control quality',
       items: [
@@ -206,12 +246,16 @@ const slides = [
   {
     title: 'Sensor Fusion',
     bullets: ['Robust state estimation', 'Accurate motion control', 'Consistent scoring cadence'],
+    kicker: 'Navigation Accuracy',
     detail: 'IMU + encoder fusion provides smooth pose updates and reduces drift during fast maneuvers.',
+    callout: 'Key takeaway: Reliable pose estimates keep autos repeatable and predictable.',
+    tags: ['Pose tracking', 'IMU', 'Encoders'],
     stats: [
       { label: 'Sensor suite', value: 'IMU + encoders' },
       { label: 'Pose error', value: '<4 cm' },
       { label: 'Update rate', value: '50 Hz' },
     ],
+    accent: '#818CF8',
     chart: {
       title: 'Estimation confidence',
       items: [
@@ -226,12 +270,16 @@ const slides = [
   {
     title: 'CAD + Design Dumps',
     bullets: ['Rapid iteration notes', 'Trade studies', 'Final assembly decisions'],
+    kicker: 'Documentation System',
     detail: 'All major choices are documented with lightweight trade studies to support fast, repeatable decisions.',
+    callout: 'Key takeaway: Clear documentation speeds onboarding and future season improvements.',
+    tags: ['CAD', 'Trade studies', 'Build notes'],
     stats: [
       { label: 'CAD revisions', value: '28' },
       { label: 'Trade studies', value: '9' },
       { label: 'Assembly docs', value: '12' },
     ],
+    accent: '#F97316',
     chart: {
       title: 'Documentation coverage',
       items: [
@@ -246,12 +294,16 @@ const slides = [
   {
     title: 'Community Impact',
     bullets: ['130+ students impacted', '430+ outreach hours', '2 community events'],
+    kicker: 'STEM Outreach',
     detail: 'We lead demos, workshops, and mentorship sessions to grow interest in robotics and STEM.',
+    callout: 'Key takeaway: Outreach strengthens our community partnerships and inspires future teams.',
+    tags: ['Workshops', 'Mentorship', 'Community'],
     stats: [
       { label: 'Workshops', value: '12' },
       { label: 'Partners', value: '5' },
       { label: 'Volunteer ratio', value: '80%' },
     ],
+    accent: '#14B8A6',
     chart: {
       title: 'Outreach momentum',
       items: [
@@ -266,12 +318,16 @@ const slides = [
   {
     title: 'Sustainability',
     bullets: ['43% parts reclaimed', 'Reuse-first workflow', 'Efficient design revisions'],
+    kicker: 'Responsible Engineering',
     detail: 'We prioritize part reuse and modular repairs to extend component life and reduce waste.',
+    callout: 'Key takeaway: Reuse-first design saves budget while reducing environmental impact.',
+    tags: ['Reuse', 'Repair', 'Efficiency'],
     stats: [
       { label: 'Reused parts', value: '43%' },
       { label: 'Repair cycles', value: '6' },
       { label: 'Waste reduction', value: 'High' },
     ],
+    accent: '#10B981',
     chart: {
       title: 'Sustainability mix',
       items: [
@@ -286,12 +342,16 @@ const slides = [
   {
     title: 'Team Structure',
     bullets: ['Software, Design, Construction, Management', '10 total members'],
+    kicker: 'Team Operations',
     detail: 'Leads coordinate across pods with weekly syncs and shared sprint goals.',
+    callout: 'Key takeaway: Clear roles and cadence keep build, code, and ops aligned.',
+    tags: ['Leadership', 'Cadence', 'Cross-team'],
     stats: [
       { label: 'Subteams', value: '4' },
       { label: 'Leads', value: '4' },
       { label: 'Meetings', value: '2 / week' },
     ],
+    accent: '#F472B6',
     chart: {
       title: 'Team balance',
       items: [
@@ -306,12 +366,16 @@ const slides = [
   {
     title: 'Team Highlights',
     bullets: ['300+ build hours', '6K+ lines of code', 'Focused, fast iteration'],
+    kicker: 'Season Output',
     detail: 'Rapid prototyping and disciplined reviews helped us deliver a stable, repeatable robot.',
+    callout: 'Key takeaway: Strong output across build, code, and testing drove performance gains.',
+    tags: ['Build hours', 'Codebase', 'Testing'],
     stats: [
       { label: 'Build hours', value: '300+' },
       { label: 'Commits', value: '420+' },
       { label: 'Prototypes', value: '9' },
     ],
+    accent: '#38BDF8',
     chart: {
       title: 'Team throughput',
       items: [
@@ -326,12 +390,16 @@ const slides = [
   {
     title: 'Closing',
     subtitle: 'Thank you for reviewing our portfolio',
+    kicker: 'Ready for Questions',
     detail: 'We welcome questions and feedback on our engineering choices, documentation, and outreach work.',
+    callout: 'Key takeaway: We are prepared to discuss decisions, data, and results in detail.',
+    tags: ['Questions', 'Feedback', 'Follow-up'],
     stats: [
       { label: 'Contact', value: 'polaris@team.org' },
       { label: 'Portfolio', value: 'polaris-23682' },
       { label: 'Review', value: 'Ready' },
     ],
+    accent: '#22D3EE',
     chart: {
       title: 'Next steps',
       items: [
@@ -370,9 +438,16 @@ const PresentationMode = ({ onClose }) => {
   }, [onClose]);
 
   const slide = slides[index];
+  const accent = slide.accent ?? '#22D3EE';
 
   return (
     <div className="fixed inset-0 z-[100] bg-slate-950/95 text-white">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `radial-gradient(circle at top left, ${accent}26, transparent 55%), radial-gradient(circle at bottom right, ${accent}1f, transparent 55%)`,
+        }}
+      />
       <div className="absolute top-6 right-6 flex items-center space-x-3">
         <span className="text-xs text-slate-300">{index + 1}/{slides.length}</span>
         <button
@@ -387,6 +462,14 @@ const PresentationMode = ({ onClose }) => {
       <div className="container mx-auto h-full px-6 py-16 flex flex-col justify-center">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div className="space-y-6">
+            {slide.kicker && (
+              <span
+                className="inline-flex items-center rounded-full border px-3 py-1 text-xs uppercase tracking-[0.3em]"
+                style={{ borderColor: `${accent}55`, color: accent }}
+              >
+                {slide.kicker}
+              </span>
+            )}
             <h2 className="text-4xl md:text-5xl font-black">{slide.title}</h2>
             {slide.subtitle && (
               <p className="text-lg text-slate-200">{slide.subtitle}</p>
@@ -394,22 +477,44 @@ const PresentationMode = ({ onClose }) => {
             {slide.detail && (
               <p className="text-base md:text-lg text-slate-200 leading-relaxed">{slide.detail}</p>
             )}
+            {slide.tags && (
+              <div className="flex flex-wrap gap-2">
+                {slide.tags.map((tag, tagIndex) => (
+                  <span
+                    key={tagIndex}
+                    className="rounded-full border px-3 py-1 text-xs font-semibold"
+                    style={{ borderColor: `${accent}55`, color: accent, backgroundColor: `${accent}1a` }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
             {slide.bullets && (
               <ul className="space-y-3 text-lg text-slate-100">
                 {slide.bullets.map((bullet, bulletIndex) => (
                   <li key={bulletIndex} className="flex items-start space-x-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-cyan-400"></span>
+                    <span className="mt-1 h-2 w-2 rounded-full" style={{ backgroundColor: accent }}></span>
                     <span>{bullet}</span>
                   </li>
                 ))}
               </ul>
+            )}
+            {slide.callout && (
+              <div
+                className="rounded-2xl border px-4 py-3 text-sm text-slate-100"
+                style={{ borderColor: `${accent}55`, backgroundColor: `${accent}12` }}
+              >
+                {slide.callout}
+              </div>
             )}
             {slide.stats && (
               <div className="grid gap-3 sm:grid-cols-3">
                 {slide.stats.map((stat, statIndex) => (
                   <div
                     key={statIndex}
-                    className="rounded-xl border border-white/10 bg-white/5 px-4 py-3"
+                    className="rounded-xl border bg-white/5 px-4 py-3"
+                    style={{ borderColor: `${accent}33` }}
                   >
                     <p className="text-xs uppercase tracking-wide text-slate-400">{stat.label}</p>
                     <p className="text-base font-semibold text-white">{stat.value}</p>
@@ -420,11 +525,11 @@ const PresentationMode = ({ onClose }) => {
           </div>
 
           <div className="flex justify-center">
-            <div className="w-full max-w-lg rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl">
-              <img src={slide.image} alt={slide.imageAlt ?? 'Slide visual'} className="w-full h-80 object-cover" />
-            </div>
-            {slide.chart && (
-              <div className="hidden lg:flex lg:flex-col lg:ml-6 lg:w-64 lg:space-y-4">
+            <div className="w-full max-w-lg space-y-4">
+              <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl">
+                <img src={slide.image} alt={slide.imageAlt ?? 'Slide visual'} className="w-full h-80 object-cover" />
+              </div>
+              {slide.chart && (
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                   <p className="text-xs uppercase tracking-wide text-slate-400">{slide.chart.title}</p>
                   <div className="mt-3 space-y-3">
@@ -436,16 +541,16 @@ const PresentationMode = ({ onClose }) => {
                         </div>
                         <div className="mt-1 h-2 rounded-full bg-white/10">
                           <div
-                            className="h-2 rounded-full bg-cyan-400"
-                            style={{ width: `${item.value}%` }}
+                            className="h-2 rounded-full"
+                            style={{ width: `${item.value}%`, backgroundColor: accent }}
                           />
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>
