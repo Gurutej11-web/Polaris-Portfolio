@@ -436,6 +436,64 @@ const slides = [
     imageAlt: 'Team celebrating progress together',
   },
   {
+    title: 'Challenges + Lessons',
+    subtitle: 'What we faced and how we adapted',
+    kicker: 'Resilience in Build Season',
+    detail: 'We encountered alignment drift, intake jamming, and inconsistent release timing early in the season.',
+    detail2: 'Each issue was tied to a root-cause log, then addressed through targeted redesigns and testing sessions.',
+    detail3: 'The result: improved reliability, clearer documentation, and faster pit recovery.',
+    humanNote: 'Every setback pushed us to refine our process and communicate better across subteams.',
+    callout: 'Key takeaway: Challenges became measurable improvements through disciplined iteration.',
+    tags: ['Problem solving', 'Iteration', 'Communication'],
+    stats: [
+      { label: 'Major issues solved', value: '5' },
+      { label: 'Test sessions', value: '20+' },
+      { label: 'Fix turnaround', value: '2–3 days' },
+    ],
+    accent: '#FB7185',
+    chart: {
+      title: 'Improvement focus',
+      items: [
+        { label: 'Reliability', value: 88 },
+        { label: 'Alignment', value: 82 },
+        { label: 'Shot timing', value: 80 },
+      ],
+    },
+    image: '/team/DSC_1126.JPG',
+    imageAlt: 'Team collaborating to solve robot challenges',
+  },
+  {
+    title: 'Build Stages Gallery',
+    subtitle: 'From early prototype to competition-ready',
+    kicker: 'Visual Progress',
+    detail: 'A quick visual timeline of our robot’s evolution across the season.',
+    detail2: 'Each stage reflects changes driven by testing data and field performance.',
+    detail3: 'We keep build photos to document choices and share lessons with new members.',
+    humanNote: 'Seeing the evolution helps judges and students understand how we think and iterate.',
+    callout: 'Key takeaway: Every stage shows intentional, data-backed improvements.',
+    tags: ['Prototyping', 'Iteration', 'Documentation'],
+    stats: [
+      { label: 'Major stages', value: '4' },
+      { label: 'Prototypes', value: '9' },
+      { label: 'Rebuilds', value: '3' },
+    ],
+    accent: '#22D3EE',
+    chart: {
+      title: 'Stage readiness',
+      items: [
+        { label: 'Prototype', value: 62 },
+        { label: 'Mid-build', value: 78 },
+        { label: 'Final', value: 92 },
+      ],
+    },
+    gallery: [
+      { src: '/team/DSC_0989.JPG', alt: 'Early robot frame and layout' },
+      { src: '/team/DSC_1094.JPG', alt: 'Mid-season iteration update' },
+      { src: '/team/DSC_1095.JPG', alt: 'Intake refinement stage' },
+      { src: '/team/DSC_1067.JPG', alt: 'Final competition-ready build' },
+    ],
+  },
+  {
     title: 'Closing',
     subtitle: 'Thank you for reviewing our portfolio',
     kicker: 'Ready for Questions',
@@ -546,7 +604,7 @@ const PresentationMode = ({ onClose }) => {
   const accent = slide.accent ?? '#22D3EE';
 
   return (
-    <div className="fixed inset-0 z-[100] bg-slate-950/95 text-white">
+    <div className="fixed inset-0 z-[100] bg-slate-950/95 text-white overflow-y-auto">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -564,9 +622,9 @@ const PresentationMode = ({ onClose }) => {
         </button>
       </div>
 
-      <div className="container mx-auto h-full px-6 py-16 flex flex-col justify-center">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <div className="space-y-4">
+      <div className="container mx-auto min-h-screen px-6 py-10 pb-28 flex flex-col">
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
+          <div className="space-y-4 max-h-[70vh] overflow-y-auto pr-2">
             {slide.kicker && (
               <span
                 className="inline-flex items-center rounded-full border px-3 py-1 text-xs uppercase tracking-[0.3em]"
@@ -575,9 +633,9 @@ const PresentationMode = ({ onClose }) => {
                 {slide.kicker}
               </span>
             )}
-            <h2 className="text-4xl md:text-5xl font-black">{slide.title}</h2>
+            <h2 className="text-3xl md:text-4xl font-black">{slide.title}</h2>
             {slide.subtitle && (
-              <p className="text-lg text-slate-200">{slide.subtitle}</p>
+              <p className="text-base text-slate-200">{slide.subtitle}</p>
             )}
             {slide.detail && (
               <p className="text-sm md:text-base text-slate-200 leading-relaxed">{slide.detail}</p>
@@ -650,7 +708,20 @@ const PresentationMode = ({ onClose }) => {
           <div className="flex justify-center">
             <div className="w-full max-w-lg space-y-4">
               <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl">
-                <img src={slide.image} alt={slide.imageAlt ?? 'Slide visual'} className="w-full h-80 object-cover" />
+                {slide.gallery ? (
+                  <div className="grid grid-cols-2 gap-2 p-2">
+                    {slide.gallery.map((item, itemIndex) => (
+                      <img
+                        key={itemIndex}
+                        src={item.src}
+                        alt={item.alt}
+                        className="h-36 w-full rounded-xl object-cover"
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <img src={slide.image} alt={slide.imageAlt ?? 'Slide visual'} className="w-full h-72 object-cover" />
+                )}
               </div>
               {slide.chart && (
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
